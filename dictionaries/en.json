@@ -1,0 +1,205 @@
+{
+  "meta": {
+    "title": "JYC",
+    "siteName": "Jeddah Yacht Club & Marina",
+    "description": "Jeddah Yacht Club & Marina — where lifestyle meets the sea.",
+    "navLabel": "Main menu"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "yachtClub": "The Yacht Club",
+    "marina": "The Marina",
+    "academy": "The Academy",
+    "blogs": "Blogs",
+    "leasing": "Leasing",
+    "contact": "Contact Us"
+  },
+  "header": {
+    "openingHours": "Opening Hours",
+    "chat": "Chat With Us",
+    "search": "Search",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "logoAlt": "Jeddah Yacht Club & Marina"
+  },
+  "switcher": {
+    "label": "AR",
+    "ariaLabel": "Switch to Arabic"
+  },
+  "common": {
+    "loading": "Loading",
+    "previous": "Previous",
+    "next": "Next",
+    "viewDetails": "View Details",
+    "learnMore": "Learn More",
+    "readMore": "Read More",
+    "ratingLabel": "Rated {rating} out of 5"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Yacht Club & Boat Rental",
+      "title": "Jeddah Yacht Club & Marina",
+      "subtitle": "Where Lifestyle Meets the Sea",
+      "text": "Welcome to Jeddah Yacht Club & Marina, showcasing our unique amenities and high-end experiences"
+    },
+    "features": [
+      {
+        "title": "Dine",
+        "text": "Indulge in unforgettable retail experiences curated by luxury brands."
+      },
+      {
+        "title": "Shop",
+        "text": "Indulge in unforgettable retail experiences curated by luxury brands."
+      },
+      {
+        "title": "Stay",
+        "text": "Indulge in unforgettable retail experiences curated by luxury brands."
+      }
+    ],
+    "about": {
+      "eyebrow": "Yacht Club & Boat Rental",
+      "title": "A Home For The Adventurous, Anchored On The Red Sea",
+      "text": "Jeddah Yacht Club & Marina is an urban and recreational oasis on the picturesque Red Sea, situated near Jeddah’s City Center, the Red Sea Mall, and the F1 racetrack.",
+      "member": "Become a Member",
+      "brochure": "Download the Brochure",
+      "imageAlt": "Young sailors in front of the JYC Academy building"
+    },
+    "offer": {
+      "eyebrow": "What We Offer",
+      "title": "Jeddah Yacht Club & Marina",
+      "text": "In the coastal heart of Saudi Arabia, JEDDAH YACHT CLUB & MARINA is an exquisite urban and recreational destination offering unparalleled experiences that are seamlessly designed to the unique needs of each visitor.",
+      "cardTitle": "The Yacht Club",
+      "cardText": "A members-only clubhouse boasting luxury amenities and a diverse calendar of social events",
+      "cardButton": "Join the Yacht Club",
+      "imageAlts": [
+        "Restaurant interior at the Yacht Club",
+        "Yachts berthed at the marina",
+        "The marina boardwalk",
+        "Visitors walking along the boardwalk"
+      ]
+    },
+    "trips": {
+      "eyebrow": "Example trips",
+      "title": "Book your Experience",
+      "text": "Embark on an unparalleled maritime adventure with Jeddah Yacht Club & Marina.",
+      "items": [
+        {
+          "title": "Riva",
+          "text": "Join us in navigating the extraordinary Red Sea!"
+        },
+        {
+          "title": "Jeddah Yacht Club",
+          "text": "Step into our iconic clubhouse and explore the unique amenities."
+        },
+        {
+          "title": "Fire Boat",
+          "text": "Experience the thrill of a high-powered ride-speed, water, and excitement all in one."
+        }
+      ]
+    },
+    "gallery": {
+      "eyebrow": "Our Gallery",
+      "title": "Explore Jeddah Yacht Club & Marina in photos, from breathtaking Red Sea views to history-defining sporting moments.",
+      "yachtClub": {
+        "title": "Jeddah Yacht Club",
+        "text": "A members-only clubhouse boasting luxury amenities and a diverse calendar of social events",
+        "button": "Become a Member",
+        "imageAlt": "The Yacht Club building at sunset"
+      },
+      "marina": {
+        "title": "The Marina",
+        "text": "World-class berths for yachts up to 120 meters, surrounded by high-end dining and retail along the Boardwalk",
+        "button": "Explore The Boardwalk",
+        "button2": "Berth at The Marina",
+        "imageAlt": "A drink on a table overlooking the sea"
+      },
+      "hotel": {
+        "title": "The Hotel",
+        "note": "(The Jeddah EDITION)",
+        "text": "A luxury lifestyle hotel on Jeddah Corniche, adjacent to the F1 track with stunning Red Sea views",
+        "button": "Stay at the Hotel",
+        "imageAlt": "The hotel façade"
+      },
+      "academy": {
+        "title": "The Academy",
+        "text": "The largest RYA-accredited training facility in the Kingdom, offering watersports courses for all ages",
+        "button": "Learn at The Academy",
+        "imageAlt": "Children on a paddle raft at the Academy"
+      }
+    },
+    "events": {
+      "eyebrow": "Upcoming Events",
+      "title": "Experience extraordinary moments at Jeddah Yacht Club & Marina",
+      "text": "Watch world-class watersports events, attend high-profile parties, and enjoy intimate members-only gatherings. A calendar of unforgettable experiences awaits.",
+      "items": [
+        {
+          "date": "9.00 - 9.30 PM | March 23, 2024",
+          "title": "Marketing mistakes you should stop making",
+          "text": "Implement effective follow-up strategies to nurture relationships",
+          "location": "Corniche of Jeddah"
+        },
+        {
+          "date": "9.00 - 9.30 PM | March 23, 2024",
+          "title": "Marketing mistakes you should stop making",
+          "text": "Implement effective follow-up strategies to nurture relationships",
+          "location": "Corniche of Jeddah"
+        },
+        {
+          "date": "9.00 - 9.30 PM | March 23, 2024",
+          "title": "Marketing mistakes you should stop making",
+          "text": "Implement effective follow-up strategies to nurture relationships",
+          "location": "Corniche of Jeddah"
+        },
+        {
+          "date": "9.00 - 9.30 PM | March 23, 2024",
+          "title": "Marketing mistakes you should stop making",
+          "text": "Implement effective follow-up strategies to nurture relationships",
+          "location": "Corniche of Jeddah"
+        }
+      ]
+    },
+    "blog": {
+      "eyebrow": "Our Blog",
+      "title": "Blog & Articles",
+      "all": "All Blogs",
+      "postTitle": "A Few Amazing Days In Sailing Dalmatia",
+      "postText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+      "imageAlt": "A couple walking along the marina boardwalk"
+    },
+    "contact": {
+      "title": "Contact Jeddah Yacht Club & Marina",
+      "text": "Whether you’re interested in booking a tour of the Yacht Club, berthing at The Marina, or something else, our friendly team is looking forward to helping you.",
+      "email": "Email Address",
+      "message": "Message",
+      "send": "Send Message",
+      "subject": "Website enquiry",
+      "imageAlt": "Sailing boats in front of the Yacht Club"
+    }
+  },
+  "footer": {
+    "about": "Explore the luxurious world of Jeddah Yacht Club with easy navigation to our services, exclusive membership details, and upcoming events",
+    "quickLinks": "Quick Links",
+    "links": {
+      "yachtClub": "Yacht Club",
+      "marina": "Marina",
+      "academy": "Academy",
+      "leasing": "Leasing",
+      "about": "About Us",
+      "blogs": "Blogs",
+      "contact": "Contact"
+    },
+    "contactTitle": "Contact Us",
+    "address": "Al Kurnaysh Br Rd, Ash Shati, Jeddah 23613, Saudi Arabia",
+    "lat": "Lat: 21 38’53.36”N",
+    "lon": "Lon: 39 05’57.16”E",
+    "newsletter": "Newsletter",
+    "newsletterText": "Sign up for our newsletter to get updated information, insight, or promotion.",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "Enter Your Email Here",
+    "subscribe": "Subscribe",
+    "newsletterSubject": "Newsletter subscription",
+    "social": "Follow us",
+    "copyright": "© Jeddah Yacht Club and Marina All rights reserved 2026"
+  }
+}

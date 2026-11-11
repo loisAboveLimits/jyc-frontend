@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+/* JYC design tokens (from the design). Use as bg-navy, text-teal, bg-gold… */
+@theme inline {
+  --color-navy: #112d45;
+  --color-navy-deep: #06192a;
+  --color-navy-soft: #1b2d3f;
+  --color-teal: #319cad;
+  --color-gold: #a8935e;
+  --font-sans: var(--font-el-messiri), Tahoma, Arial, sans-serif;
+}
+
+body {
+  background: var(--color-navy-deep);
+  color: #ffffff;
+  font-family: var(--font-sans);
+}
+
+/* Smooth page scrolling is handled by components/SmoothScroll.tsx (Lenis). */
+
+/* Hide the scrollbar of horizontal scrollers. */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
