@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
 import type { Swiper as SwiperInstance } from "swiper";
 import { A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -25,6 +25,48 @@ type Props = {
   trips: Trip[];
   labels: { previous: string; next: string; learnMore: string; rating: string };
 };
+
+type Labels = Props["labels"];
+
+/** One trip: photo, title, star rating, text and "Learn More". */
+function TripCard({ trip, labels }: { trip: Trip; labels: Labels }) {
+  return (
+    <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-teal/60 bg-teal/25 transition-colors hover:bg-teal">
+      <div className="relative aspect-[284/205] overflow-hidden rounded-b-3xl">
+        <Image
+          src={trip.image}
+          alt=""
+          fill
+          sizes="(min-width: 1280px) 22vw, (min-width: 640px) 45vw, 82vw"
+          className="object-cover"
+        />
+      </div>
+      <div className="flex flex-1 flex-col px-6 pb-6 pt-4">
+        <h3 className="text-2xl font-bold">{trip.title}</h3>
+        <div
+          role="img"
+          aria-label={labels.rating.replace("{rating}", String(trip.rating))}
+          className="mt-4 flex gap-0.5"
+        >
+          {[1, 2, 3, 4, 5].map((star) => (
+            <StarIcon
+              key={star}
+              className={`h-3 w-auto ${star <= trip.rating ? "text-gold" : "text-white/55"}`}
+            />
+          ))}
+        </div>
+        <p className="mb-6 mt-2 leading-snug text-white/90">{trip.text}</p>
+        <Link
+          href={trip.href}
+          className={`${button.glass} ms-auto mt-auto text-sm group-hover:border group-hover:border-white`}
+        >
+          {labels.learnMore}
+          <span className="sr-only">: {trip.title}</span>
+        </Link>
+      </div>
+    </article>
+  );
+}
 
 /** "Book your Experience": intro on one side, a Swiper slider of trip cards on the other. */
 export default function Trips({ eyebrowText, title, text, trips, labels }: Props) {
@@ -63,6 +105,26 @@ export default function Trips({ eyebrowText, title, text, trips, labels }: Props
           <p className="mt-10 text-lg leading-relaxed sm:text-2xl sm:leading-[1.6]">{text}</p>
         </div>
 
+        {/*
+          Swiper can only start in the browser, so the build cannot render it.
+          The fallback is what goes into the page's HTML: the same cards in a
+          plain row (good for search engines and no layout jump). Swiper takes
+          over as soon as the page loads.
+        */}
+        <Suspense
+          fallback={
+            <div className="flex min-w-0 gap-5 overflow-hidden">
+              {trips.map((trip) => (
+                <div
+                  key={trip.title}
+                  className="w-[87%] shrink-0 sm:w-[calc((100%-20px)/2)] xl:w-[calc((100%-40px)/3)]"
+                >
+                  <TripCard trip={trip} labels={labels} />
+                </div>
+              ))}
+            </div>
+          }
+        >
         <Swiper
           modules={[A11y]}
           onSwiper={(instance) => {
@@ -81,43 +143,11 @@ export default function Trips({ eyebrowText, title, text, trips, labels }: Props
         >
           {slides.map((trip, index) => (
             <SwiperSlide key={`${trip.title}-${index}`} className="!h-auto">
-              <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-teal/60 bg-teal/25 transition-colors hover:bg-teal">
-                <div className="relative aspect-[284/205] overflow-hidden rounded-b-3xl">
-                  <Image
-                    src={trip.image}
-                    alt=""
-                    fill
-                    sizes="(min-width: 1280px) 22vw, (min-width: 640px) 45vw, 82vw"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col px-6 pb-6 pt-4">
-                  <h3 className="text-2xl font-bold">{trip.title}</h3>
-                  <div
-                    role="img"
-                    aria-label={labels.rating.replace("{rating}", String(trip.rating))}
-                    className="mt-4 flex gap-0.5"
-                  >
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <StarIcon
-                        key={star}
-                        className={`h-3 w-auto ${star <= trip.rating ? "text-gold" : "text-white/55"}`}
-                      />
-                    ))}
-                  </div>
-                  <p className="mb-6 mt-2 leading-snug text-white/90">{trip.text}</p>
-                  <Link
-                    href={trip.href}
-                    className={`${button.glass} ms-auto mt-auto text-sm group-hover:border group-hover:border-white`}
-                  >
-                    {labels.learnMore}
-                    <span className="sr-only">: {trip.title}</span>
-                  </Link>
-                </div>
-              </article>
+              <TripCard trip={trip} labels={labels} />
             </SwiperSlide>
           ))}
         </Swiper>
+        </Suspense>
       </div>
     </section>
   );
