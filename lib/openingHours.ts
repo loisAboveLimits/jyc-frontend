@@ -1,21 +1,23 @@
 /**
  * Opening hours shown in the "Opening Hours" popup (top of every page).
- * SAMPLE HOURS: replace them with the club's real times (later from Drupal).
+ * From the current site's Contact page: 9:00 AM – 2:30 AM, and until
+ * 3:00 AM at the weekend (Friday and Saturday nights).
  *
- * `week` starts on Sunday (index 0 = Sunday … 6 = Saturday).
- * Times are 24-hour "HH:MM" in Jeddah time; "24:00" means midnight at the
- * end of that day. Use null for a day the club is closed.
+ * The list starts on Sunday (index 0 = Sunday … 6 = Saturday).
+ * Times are 24-hour "HH:MM" in Jeddah time. A closing time after midnight
+ * is written past 24:00 ("26:30" = 2:30 AM the next morning).
+ * Use null for a day the club is closed.
  */
 export type DayHours = { open: string; close: string } | null;
 
 export const openingHours: DayHours[] = [
-  { open: "08:00", close: "23:00" }, // Sunday
-  { open: "08:00", close: "23:00" }, // Monday
-  { open: "08:00", close: "23:00" }, // Tuesday
-  { open: "08:00", close: "23:00" }, // Wednesday
-  { open: "08:00", close: "24:00" }, // Thursday
-  { open: "08:00", close: "24:00" }, // Friday
-  { open: "08:00", close: "24:00" }, // Saturday
+  { open: "09:00", close: "26:30" }, // Sunday
+  { open: "09:00", close: "26:30" }, // Monday
+  { open: "09:00", close: "26:30" }, // Tuesday
+  { open: "09:00", close: "26:30" }, // Wednesday
+  { open: "09:00", close: "26:30" }, // Thursday
+  { open: "09:00", close: "27:00" }, // Friday
+  { open: "09:00", close: "27:00" }, // Saturday
 ];
 
 /** The club's location (same as in the footer). */
@@ -52,11 +54,14 @@ export function jeddahNow(date = new Date()) {
   return { day, minutes: Number(get("hour")) * 60 + Number(get("minute")) };
 }
 
-/** Whether the club is open at the given moment. */
+/** Whether the club is open at the given moment (including after midnight). */
 export function isOpenNow(date = new Date()): boolean {
   const { day, minutes: now } = jeddahNow(date);
   const today = openingHours[day];
-  return !!today && now >= minutes(today.open) && now < minutes(today.close);
+  if (today && now >= minutes(today.open) && now < minutes(today.close)) return true;
+  // Still open from the night before?
+  const yesterday = openingHours[(day + 6) % 7];
+  return !!yesterday && now < minutes(yesterday.close) - 24 * 60;
 }
 
 /** "8:00 AM" / "٨:٠٠ ص" style time for a "HH:MM" value. */

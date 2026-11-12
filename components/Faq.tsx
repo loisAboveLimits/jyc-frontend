@@ -40,7 +40,9 @@ export default function Faq({ title, items }: Props) {
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => setOpen(isOpen ? null : index)}
-                    className="flex w-full cursor-pointer items-center justify-between gap-4 rounded-[32px] bg-[linear-gradient(90deg,rgba(168,147,94,0.8)_0%,rgba(49,156,173,0.4)_32%,rgba(27,45,63,0.95)_100%)] px-6 py-3.5 text-start shadow-lg shadow-black/25 transition-[filter] hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold sm:px-7 sm:py-4 rtl:bg-[linear-gradient(270deg,rgba(168,147,94,0.8)_0%,rgba(49,156,173,0.4)_32%,rgba(27,45,63,0.95)_100%)]"
+                    // Frosted glass pill, as in the design: see-through with a thin light
+                    // edge, a soft gold glow at the start and the page blurred behind it.
+                    className="flex w-full cursor-pointer items-center justify-between gap-4 rounded-[32px] border border-white/25 bg-[radial-gradient(ellipse_45%_220%_at_0%_50%,rgba(168,147,94,0.85),rgba(168,147,94,0.25)_45%,transparent_75%),linear-gradient(90deg,rgba(49,156,173,0.3)_0%,rgba(49,156,173,0.24)_40%,rgba(255,255,255,0.06)_100%)] px-6 py-3.5 text-start shadow-[inset_0_1px_0_rgba(255,255,255,0.2),inset_0_0_30px_rgba(255,255,255,0.04),0_10px_24px_rgba(0,0,0,0.3)] backdrop-blur-xl transition-[filter,border-color] hover:border-white/45 hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold sm:px-7 sm:py-4 rtl:bg-[radial-gradient(ellipse_45%_220%_at_100%_50%,rgba(168,147,94,0.85),rgba(168,147,94,0.25)_45%,transparent_75%),linear-gradient(270deg,rgba(49,156,173,0.3)_0%,rgba(49,156,173,0.24)_40%,rgba(255,255,255,0.06)_100%)]"
                   >
                     <span className="text-lg leading-snug sm:text-[22px] ltr:pt-[0.12em]">
                       {item.question}

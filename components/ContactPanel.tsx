@@ -88,7 +88,7 @@ export default function ContactPanel({
 
         <div className="relative h-80 w-full overflow-hidden rounded-3xl shadow-2xl shadow-black/30 sm:aspect-[659/400] sm:h-auto">
           <Image src={image} alt={imageAlt} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
-          <dl className="absolute start-4 top-4 space-y-5 rounded-2xl bg-navy/30 p-5 shadow-lg shadow-black/20 backdrop-blur-md sm:start-8 sm:top-8">
+          <dl className="absolute start-4 top-4 max-w-[calc(100%-2rem)] space-y-5 rounded-2xl bg-navy/30 p-5 shadow-lg shadow-black/20 backdrop-blur-md sm:start-8 sm:top-8">
             {[
               { label: labels.emailLabel, value: email, href: `mailto:${email}`, Icon: MailIcon },
               {
@@ -105,7 +105,7 @@ export default function ContactPanel({
                 <div>
                   <dt className="text-lg font-bold leading-tight">{label}</dt>
                   <dd>
-                    <a href={href} dir="ltr" className="text-white/90 hover:text-teal">
+                    <a href={href} dir="ltr" className="break-all text-white/90 hover:text-teal">
                       {value}
                     </a>
                   </dd>

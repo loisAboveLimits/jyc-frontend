@@ -654,6 +654,112 @@
       "page": "Page {page}"
     }
   },
+  "leasing": {
+    "title": "Leasing",
+    "contact": {
+      "title": "Contact Our Leasing Team",
+      "text": "Discover exceptional leasing opportunities in a vibrant waterfront destination, combining a prime location with breathtaking Red Sea views.",
+      "subject": "Leasing enquiry",
+      "imageAlt": "Aerial view of Jeddah Yacht Club & Marina on the Red Sea"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact Us",
+      "text": "As the premier international port on Saudi Arabia’s Red Sea coast, Jeddah Yacht Club & Marina offers 5-star docking facilities and a range of modern amenities, ensuring your yachting journey is seamless and worry-free."
+    },
+    "info": {
+      "title": "Stay connected",
+      "text": "Visit us on the Jeddah Waterfront, call us, or send us a message. Our team is always happy to help.",
+      "location": "Location",
+      "coordinates": "Coordinates",
+      "phone": "Phone",
+      "email": "Email",
+      "hours": "Opening Hours",
+      "hoursText": "Daily from 9:00 AM · See all hours",
+      "imageAlt": "Jeddah Yacht Club & Marina from above, with superyachts in the marina"
+    },
+    "form": {
+      "title": "Contact Jeddah Yacht Club & Marina",
+      "text": "Whether you’re interested in booking a tour of the Yacht Club, berthing at The Marina, or something else, our friendly team is looking forward to helping you.",
+      "firstName": "First name",
+      "firstNamePlaceholder": "Enter Your First Name",
+      "lastName": "Last name",
+      "lastNamePlaceholder": "Enter Your Last Name",
+      "email": "Email",
+      "emailPlaceholder": "Enter Your Email",
+      "question": "Your question",
+      "questionPlaceholder": "Enter Your Question",
+      "send": "Send",
+      "subject": "Website enquiry"
+    },
+    "newsletter": {
+      "title": "Stay connected",
+      "text": "Don’t miss a moment of Jeddah’s finest in luxury and watersports. Subscribe to our newsletter for updates from Jeddah Yacht Club & Marina.",
+      "download": "Download Our Latest News",
+      "email": "Email address",
+      "placeholder": "Enter Your Email Here",
+      "send": "Send Now",
+      "subject": "Newsletter subscription"
+    },
+    "faq": {
+      "title": "FAQs",
+      "items": [
+        {
+          "question": "Can I rent a yacht at Jeddah Yacht Club & Marina?",
+          "answer": "Yes. Yacht and marine experiences are available through JYC. Availability and booking requirements vary, so please call us on 920016134 for details."
+        },
+        {
+          "question": "How do I contact the JYC Academy?",
+          "answer": "You can reach the Academy on WhatsApp at +966 56 091 5422, or call 920016134."
+        },
+        {
+          "question": "How can I contact JYC?",
+          "answer": "Call us on 920016134, email info@jeddahyc.com, or send us a message using the form on this page."
+        },
+        {
+          "question": "What are JYC’s opening hours?",
+          "answer": "We are open from 9:00 AM to 2:30 AM, and until 3:00 AM at the weekend."
+        },
+        {
+          "question": "What is JYC Academy?",
+          "answer": "The Academy offers sports and maritime activities that build skills, encourage an active lifestyle and introduce people of all ages to the water."
+        },
+        {
+          "question": "What should I do if I lose something?",
+          "answer": "Please call us on 920016134 and our team will help you."
+        },
+        {
+          "question": "How can I become a member?",
+          "answer": "You can find the membership options and apply through the Yacht Club page, or call us on 920016134."
+        },
+        {
+          "question": "What is The Jeddah EDITION?",
+          "answer": "The Jeddah EDITION is the luxury hotel at Jeddah Yacht Club & Marina, offering rooms, dining and hospitality overlooking the Red Sea."
+        },
+        {
+          "question": "Is valet parking available?",
+          "answer": "Yes, valet parking is available."
+        },
+        {
+          "question": "Are electric vehicle charging stations available?",
+          "answer": "Yes, there are charging stations for electric vehicles."
+        },
+        {
+          "question": "Is the club open to the public?",
+          "answer": "Yes. You don’t need to be a member to visit, though the club keeps an upscale, exclusive atmosphere."
+        },
+        {
+          "question": "What are the parking fees?",
+          "answer": "Parking is SAR 50 for the first hour and SAR 10 for each additional hour. Fees can often be validated or refunded when you dine at one of our restaurants."
+        },
+        {
+          "question": "How can I make a reservation?",
+          "answer": "Book directly with the restaurant, venue or experience you’d like to visit, or call us on 920016134."
+        }
+      ]
+    }
+  },
   "footer": {
     "about": "Explore the luxurious world of Jeddah Yacht Club with easy navigation to our services, exclusive membership details, and upcoming events",
     "quickLinks": "Quick Links",
