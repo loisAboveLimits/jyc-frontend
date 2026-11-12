@@ -333,6 +333,121 @@
       ]
     }
   },
+  "yachtClub": {
+    "hero": {
+      "breadcrumbHome": "Home",
+      "breadcrumbLabel": "Breadcrumb",
+      "title": "The Yacht Club",
+      "text": "Join the Yacht Club and step into our iconic sail-and-boom-shaped clubhouse, standing proudly on the Jeddah Waterfront.",
+      "intro": "Home to a myriad of exceptional experiences, it’s your place to explore new adventures or find retreat – in peaceful solitude or among a community of like-minded people.",
+      "apply": "Apply Now",
+      "imageAlt": "The Yacht Club and marina at dusk"
+    },
+    "features": [
+      {
+        "title": "Step into a realm of private sanctuaries",
+        "text": "Network over breathtaking views of the Red Sea and Jeddah skyline at {highlight}. Relax at the Cigar Lounge, complete with a curated selection of fine cigars and private humidors. For dining, try Marina Social, led by Michelin-starred chef Jason Atherton, offering a Mediterranean culinary journey with live entertainment and waterfront views.",
+        "highlight": "Riva Privée",
+        "imageAlt": "Lounge chairs by the windows overlooking the Red Sea"
+      },
+      {
+        "title": "Enjoy priority hotel & berth bookings",
+        "text": "Enjoy priority access to marina berthing and luxury hotel accommodations. With 95 berths accommodating yachts up to 120 meters, the marina offers top-tier docking facilities, ensuring a hassle-free experience for yacht owners. Members also receive priority bookings at the club’s luxury hotel, featuring 63 elegantly designed rooms.",
+        "highlight": "",
+        "imageAlt": "Yachts moored in front of the Yacht Club"
+      },
+      {
+        "title": "Access private concierge services",
+        "text": "As a member, your dedicated Guest Relations Officer will provide bespoke services tailored to your unique lifestyle, handling all arrangements and queries. You also enjoy personalized shopping and dining experiences, along with priority access through complimentary valet and members-only parking areas.",
+        "highlight": "",
+        "imageAlt": "A dish being served at a dining table"
+      },
+      {
+        "title": "Network with business leaders & yachting enthusiasts",
+        "text": "Gain access to a unique network of like-minded professionals from the worlds of business, luxury, and yachting. Connect over shared passions at intimate social events, foster collaborations in our state-of-the-art boardrooms, and host gatherings on the Terrace.",
+        "highlight": "",
+        "imageAlt": "A brass telescope in the club lounge"
+      }
+    ],
+    "becomeMember": "Become a Member",
+    "brochure": "Download the Brochure",
+    "benefits": {
+      "title": "Experience everything The Yacht Club has to offer",
+      "items": [
+        "Special rates for event tickets",
+        "Access to The Beach Club",
+        "State-of-the-art gym & wellness center",
+        "Discounts at restaurants",
+        "Discounts at boutiques",
+        "Access to The Academy watersports courses"
+      ],
+      "imageAlt": "A yacht cruising across the sea"
+    },
+    "reviews": {
+      "title": "Visitors’ Experience",
+      "text": "Discover what our visitors have to say about their visit to Jeddah Yacht Club & Marina.",
+      "items": [
+        {
+          "name": "Abo Meshal",
+          "title": "The best address in Jeddah",
+          "rating": 4,
+          "text": "Beautiful hotel with amazing staff. The rooms offer stunning views of the Red Sea and Jeddah Marina. I was truly amazed by the warm and genuine Saudi hospitality. The staff made me feel incredibly welcome and went above and beyond to ensure my stay was memorable."
+        },
+        {
+          "name": "Abo Meshal",
+          "title": "The best address in Jeddah",
+          "rating": 4,
+          "text": "Beautiful hotel with amazing staff. The rooms offer stunning views of the Red Sea and Jeddah Marina. I was truly amazed by the warm and genuine Saudi hospitality. The staff made me feel incredibly welcome and went above and beyond to ensure my stay was memorable."
+        },
+        {
+          "name": "Abo Meshal",
+          "title": "The best address in Jeddah",
+          "rating": 4,
+          "text": "Beautiful hotel with amazing staff. The rooms offer stunning views of the Red Sea and Jeddah Marina. I was truly amazed by the warm and genuine Saudi hospitality. The staff made me feel incredibly welcome and went above and beyond to ensure my stay was memorable."
+        },
+        {
+          "name": "Abo Meshal",
+          "title": "The best address in Jeddah",
+          "rating": 4,
+          "text": "Beautiful hotel with amazing staff. The rooms offer stunning views of the Red Sea and Jeddah Marina. I was truly amazed by the warm and genuine Saudi hospitality. The staff made me feel incredibly welcome and went above and beyond to ensure my stay was memorable."
+        },
+        {
+          "name": "Abo Meshal",
+          "title": "The best address in Jeddah",
+          "rating": 4,
+          "text": "Beautiful hotel with amazing staff. The rooms offer stunning views of the Red Sea and Jeddah Marina. I was truly amazed by the warm and genuine Saudi hospitality. The staff made me feel incredibly welcome and went above and beyond to ensure my stay was memorable."
+        }
+      ]
+    },
+    "stats": [
+      {
+        "value": 0,
+        "suffix": "+",
+        "label": "Members"
+      },
+      {
+        "value": 0,
+        "suffix": "%",
+        "label": "Member satisfaction"
+      },
+      {
+        "value": 0,
+        "suffix": "+",
+        "label": "Events in 2024"
+      }
+    ],
+    "contact": {
+      "title": "Contact The Yacht Club",
+      "text": "Find out more, book a tour, and join The Yacht Club. Submit your details and we’ll be in touch soon.",
+      "email": "Email Address",
+      "message": "Message",
+      "send": "Send",
+      "subject": "Yacht Club enquiry",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "imageAlt": "The Riva lounge overlooking the Red Sea"
+    }
+  },
   "footer": {
     "about": "Explore the luxurious world of Jeddah Yacht Club with easy navigation to our services, exclusive membership details, and upcoming events",
     "quickLinks": "Quick Links",
