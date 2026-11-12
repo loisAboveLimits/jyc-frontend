@@ -37,7 +37,16 @@
     "ratingLabel": "Rated {rating} out of 5",
     "close": "Close",
     "openImage": "Enlarge photo",
-    "imageCounter": "{current} of {total}"
+    "imageCounter": "{current} of {total}",
+    "breadcrumbHome": "Home",
+    "breadcrumbLabel": "Breadcrumb",
+    "contactForm": {
+      "email": "Email Address",
+      "message": "Message",
+      "send": "Send",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone"
+    }
   },
   "home": {
     "hero": {
@@ -335,8 +344,6 @@
   },
   "yachtClub": {
     "hero": {
-      "breadcrumbHome": "Home",
-      "breadcrumbLabel": "Breadcrumb",
       "title": "The Yacht Club",
       "text": "Join the Yacht Club and step into our iconic sail-and-boom-shaped clubhouse, standing proudly on the Jeddah Waterfront.",
       "intro": "Home to a myriad of exceptional experiences, it’s your place to explore new adventures or find retreat – in peaceful solitude or among a community of like-minded people.",
@@ -439,13 +446,93 @@
     "contact": {
       "title": "Contact The Yacht Club",
       "text": "Find out more, book a tour, and join The Yacht Club. Submit your details and we’ll be in touch soon.",
-      "email": "Email Address",
-      "message": "Message",
-      "send": "Send",
       "subject": "Yacht Club enquiry",
-      "emailLabel": "Email",
-      "phoneLabel": "Phone",
       "imageAlt": "The Riva lounge overlooking the Red Sea"
+    }
+  },
+  "marina": {
+    "hero": {
+      "title": "JYC Marina",
+      "text": "As the premier international port on Saudi Arabia’s Red Sea coast, Jeddah Yacht Club & Marina offers 5-star docking facilities and a range of modern amenities, ensuring your yachting journey is seamless and worry-free.",
+      "intro": "Home to a myriad of exceptional experiences, it’s your place to explore new adventures or find retreat – in peaceful solitude or among a community of like-minded people.",
+      "apply": "Apply Now"
+    },
+    "cards": {
+      "berth": {
+        "title": "Berth yachts & superyachts",
+        "text": "Berth yachts up to 120 meters. Each berth is equipped with a 50/60Hz power supply, freshwater, and blackwater removal systems, and comprehensive maintenance services are available to keep vessels in top condition.",
+        "button": "Book Berth",
+        "imageAlt": "The Yacht Club's sail-shaped clubhouse seen from the water"
+      },
+      "dining": {
+        "title": "Experience Jeddah’s culinary excellence",
+        "text": "Step off your yacht and immerse yourself on the Boardwalk, a vibrant waterfront promenade that perfectly encircles the Marina. Featuring an array of luxury international and Arabian restaurants, the Boardwalk also offers an exceptional selection of retail venues.",
+        "button": "Browse Restaurants",
+        "imageAlt": "A restaurant front on the Boardwalk"
+      }
+    },
+    "port": {
+      "title": "The Red Sea’s most prestigious port",
+      "items": [
+        "24/7 top-tier security measures for peace of mind",
+        "Recognized Port of Entry with customs and immigration services",
+        "Hassle-free crew visa processing through the EBHAR e-portal",
+        "High-speed WiFi connectivity",
+        "Access to a fully-equipped gym",
+        "Personalized concierge services"
+      ],
+      "imageAlt": "A wooden speedboat cruising across the sea"
+    },
+    "faq": {
+      "title": "FAQs",
+      "items": [
+        {
+          "question": "What are the navigation reference points for entrance into Jeddah Yacht Club & Marina?",
+          "answer": "The reference point for the marina entrance is latitude 21°38'02\" N, longitude 39°05'30\" E."
+        },
+        {
+          "question": "Are there any specific contact details or channels to reach out to Jeddah Yacht Club & Marina?",
+          "answer": "You can contact the marina on VHF channel 17 or 76, using the call sign “JYC Control”."
+        },
+        {
+          "question": "Are there any restrictions on boat size allowed at The Marina?",
+          "answer": "The Marina welcomes vessels of up to 120 meters, with pontoon finger, Mediterranean moor and alongside berthing options."
+        },
+        {
+          "question": "What are the current check-in and check-out procedures?",
+          "answer": "Local check-in and check-out are streamlined, with no extra stops along the way. International arrivals and departures go through the Port of Entry and Exit service, arranged through a boat agent whose office is about a two-minute buggy ride from the marina."
+        },
+        {
+          "question": "What types of visitor berthing options are available at Jeddah Yacht Club & Marina?",
+          "answer": "Visitors can berth to pick up or drop off guests, to check out before an international voyage, or to dock and dine for up to four hours. Berths are also available by the day, month or year."
+        },
+        {
+          "question": "How much does berthing cost?",
+          "answer": "Berthing rates depend on the size of your vessel and the length of your stay. Contact the marina team below and we’ll send you a quote."
+        },
+        {
+          "question": "What fuel is available at JYC Marina?",
+          "answer": "The on-site fuel station offers Gas 95 and diesel. International bunkers can be arranged with prior notice."
+        },
+        {
+          "question": "What does 24/7 access mean?",
+          "answer": "You can enter or leave the marina at any time, and our team is on hand around the clock, every day of the year."
+        },
+        {
+          "question": "What security measures are in place to ensure the safety of boats in the marina?",
+          "answer": "Dock staff trained in emergency response are on duty 24/7, entry to the marina is gated, and the whole area is covered by an extensive CCTV network."
+        },
+        {
+          "question": "What specific documents are required when requesting a berth in the marina?",
+          "answer": "For annual berthing you will need the owner’s ID; company registration documents if the vessel is owned by a company; the vessel registration (permanent for KSA); a navigation permit (KSA-registered or international, arranged through an agent); and proof of insurance with third-party cover of at least USD 1,000,000."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contact The Marina",
+      "text": "Find out more, book a berth, or plan your visit. Submit your details and we’ll be in touch soon.",
+      "subject": "Marina enquiry",
+      "imageAlt": "Breakfast tray floating in a pool"
     }
   },
   "footer": {

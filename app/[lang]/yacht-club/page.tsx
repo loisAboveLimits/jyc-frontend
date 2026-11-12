@@ -2,12 +2,12 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import ContactPanel from "@/components/ContactPanel";
 import { mainPageMetadata, type LangParams } from "@/components/MainPage";
+import PageHero from "@/components/PageHero";
 import Benefits from "@/components/yacht-club/Benefits";
 import FeatureRows from "@/components/yacht-club/FeatureRows";
 import Testimonials from "@/components/yacht-club/Testimonials";
-import YachtContact from "@/components/yacht-club/YachtContact";
-import YachtHero from "@/components/yacht-club/YachtHero";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale } from "@/lib/i18n";
 
@@ -32,15 +32,30 @@ export default async function YachtClubPage({ params }: Props) {
   if (!isLocale(lang)) notFound();
 
   const dict = await getDictionary(lang);
-  const benefits = dict.yachtClub.benefits;
+  const t = dict.yachtClub;
+  const benefits = t.benefits;
 
   return (
     <main className="flex-1">
-      <YachtHero lang={lang} dict={dict} />
+      <PageHero
+        lang={lang}
+        breadcrumb={{ home: dict.common.breadcrumbHome, label: dict.common.breadcrumbLabel }}
+        title={t.hero.title}
+        text={t.hero.text}
+        image="/images/yacht-club/hero.jpg"
+        intro={{ text: t.hero.intro, link: t.hero.apply, href: "#yacht-club-contact" }}
+      />
       <FeatureRows dict={dict} brochureHref={brochureHref} />
       <Benefits title={benefits.title} items={benefits.items} imageAlt={benefits.imageAlt} />
       <Testimonials dict={dict} />
-      <YachtContact dict={dict} />
+      <ContactPanel
+        id="yacht-club-contact"
+        title={t.contact.title}
+        text={t.contact.text}
+        labels={{ ...dict.common.contactForm, subject: t.contact.subject }}
+        image="/images/yacht-club/contact.jpg"
+        imageAlt={t.contact.imageAlt}
+      />
     </main>
   );
 }
