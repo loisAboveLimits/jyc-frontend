@@ -21,7 +21,26 @@
     "search": "Search",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "logoAlt": "Jeddah Yacht Club & Marina"
+    "logoAlt": "Jeddah Yacht Club & Marina",
+    "hours": {
+      "intro": "Jeddah Yacht Club & Marina",
+      "days": [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "closed": "Closed",
+      "today": "Today",
+      "openNow": "Open now",
+      "closedNow": "Closed now",
+      "marinaNote": "The Marina is open 24/7 for berth holders and visiting yachts.",
+      "directions": "Get Directions",
+      "mapTitle": "Map showing the location of Jeddah Yacht Club & Marina"
+    }
   },
   "switcher": {
     "label": "AR",
@@ -620,6 +639,19 @@
       "text": "Learn more about our courses and marine experiences. Send us your details and the Academy team will help you find the right program.",
       "subject": "Academy enquiry",
       "imageAlt": "The Academy reception"
+    }
+  },
+  "blogs": {
+    "title": "Blogs",
+    "listTitle": "Latest posts",
+    "related": "Related Posts",
+    "back": "Back to all blogs",
+    "publishedOn": "Published on",
+    "pagination": {
+      "nav": "Blog pages",
+      "previous": "Previous page",
+      "next": "Next page",
+      "page": "Page {page}"
     }
   },
   "footer": {

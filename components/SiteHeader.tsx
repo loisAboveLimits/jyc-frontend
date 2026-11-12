@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import { ChatIcon, ClockIcon, GlobeIcon, SearchIcon } from "@/components/icons";
+import { ChatIcon, GlobeIcon, SearchIcon } from "@/components/icons";
 import MainNav from "@/components/MainNav";
+import OpeningHours from "@/components/OpeningHours";
 import type { Dictionary } from "@/lib/dictionaries";
 import { centerText } from "@/components/ui";
 import { localizedHref, type Locale } from "@/lib/i18n";
@@ -21,18 +22,24 @@ export default function SiteHeader({ lang, dict }: Props) {
     href: localizedHref(lang, page.path),
     path: page.path,
   }));
-  const contactHref = localizedHref(lang, "/contact");
+  // const contactHref = localizedHref(lang, "/contact");
+  const contactHref = "https://wa.me";
 
   return (
     <header className="absolute inset-x-0 top-0 z-40">
       <div className="mx-auto w-full max-w-[1340px] px-5 sm:px-8">
         {/* Utility links */}
         <div className="flex items-center justify-end gap-4 pt-2.5 text-sm text-white/90 sm:gap-10">
-          <Link href={contactHref} className={`flex min-h-11 items-center gap-2 hover:text-white ${centerText}`}>
-            <ClockIcon className="size-4" />
-            {dict.header.openingHours}
-          </Link>
-          <Link href={contactHref} className={`flex min-h-11 items-center gap-2 hover:text-white ${centerText}`}>
+          <OpeningHours
+            lang={lang}
+            labels={{
+              ...dict.header.hours,
+              title: dict.header.openingHours,
+              address: dict.footer.address,
+              close: dict.common.close,
+            }}
+          />
+          <Link href={contactHref} className={`flex min-h-11 items-center gap-2 hover:text-white ${centerText}`} target="_new">
             <ChatIcon className="size-4" />
             {dict.header.chat}
           </Link>
