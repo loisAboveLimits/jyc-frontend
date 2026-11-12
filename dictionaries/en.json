@@ -34,7 +34,10 @@
     "viewDetails": "View Details",
     "learnMore": "Learn More",
     "readMore": "Read More",
-    "ratingLabel": "Rated {rating} out of 5"
+    "ratingLabel": "Rated {rating} out of 5",
+    "close": "Close",
+    "openImage": "Enlarge photo",
+    "imageCounter": "{current} of {total}"
   },
   "home": {
     "hero": {
@@ -175,6 +178,159 @@
       "send": "Send Message",
       "subject": "Website enquiry",
       "imageAlt": "Sailing boats in front of the Yacht Club"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "About us",
+      "subtitle": "Where the Red Sea meets a world of refined experiences",
+      "introTitle": "Pioneering the future of watersports",
+      "introText": "Jeddah Yacht Club & Marina is redefining the maritime experience in Saudi Arabia, inspiring both seasoned sailors and watersports newcomers to explore the endless possibilities of the open sea.",
+      "imageAlts": [
+        "Dining table set on the deck of a yacht",
+        "A crew member looking at the yachts in the marina"
+      ]
+    },
+    "stats": [
+      {
+        "value": "+5K",
+        "label": "Footfall per day"
+      },
+      {
+        "value": "190.9K",
+        "label": "Land area"
+      },
+      {
+        "value": "+440",
+        "label": "Parking spaces"
+      },
+      {
+        "value": "94",
+        "label": "Yacht berths"
+      }
+    ],
+    "heritage": {
+      "title": "Drawing from the Kingdom’s rich maritime heritage",
+      "text": "For centuries Jeddah has been a gateway to the Red Sea. Jeddah Yacht Club & Marina carries that story forward: it opened in 2021 for the Formula 1 race on the Jeddah Corniche and is part of the Kingdom’s Vision 2030.",
+      "button": "Contact Us",
+      "counters": [
+        {
+          "value": "63",
+          "label": "Luxury hotel rooms"
+        },
+        {
+          "value": "120 m",
+          "label": "Maximum yacht length"
+        },
+        {
+          "value": "2021",
+          "label": "Year opened"
+        },
+        {
+          "value": "24/7",
+          "label": "Marina security"
+        }
+      ]
+    },
+    "academy": {
+      "title": "Start Your Journey With The Academy",
+      "cards": [
+        {
+          "title": "Learn watersports",
+          "text": "The Academy boasts a fleet of training vessels for all skill levels, from dinghies to powerboats."
+        },
+        {
+          "title": "Become a maritime professional",
+          "text": "Explore programs for the next generation of maritime professionals, like first aid and VHF."
+        },
+        {
+          "title": "Join the community",
+          "text": "Become a valued part of a thriving and connected community of aquatic sports enthusiasts."
+        }
+      ]
+    },
+    "inside": {
+      "title": "Take a look inside",
+      "imageAlts": [
+        "Sailing boats and motor yachts moored in a harbour",
+        "Small boats in a clear cove between rocky cliffs",
+        "A motor yacht cruising past a green hillside",
+        "A sailing yacht at a glass-walled pier at sunset",
+        "A superyacht lit up at night in the marina",
+        "Aerial view of a speedboat on dark green water"
+      ]
+    },
+    "team": {
+      "title": "Meet The Team",
+      "text": "We work together to bring our shared vision to life and create a meaningful impact in everything we do.",
+      "members": [
+        {
+          "name": "Name",
+          "role": "Training Manager"
+        },
+        {
+          "name": "Name",
+          "role": "Training Manager"
+        },
+        {
+          "name": "Name",
+          "role": "Training Manager"
+        },
+        {
+          "name": "Name",
+          "role": "Training Manager"
+        }
+      ]
+    },
+    "experience": {
+      "title": "How will you experience Jeddah Yacht Club & Marina?",
+      "text": "In the coastal heart of Saudi Arabia, JEDDAH YACHT CLUB & MARINA is an exquisite urban and recreational destination offering unparalleled experiences that are seamlessly designed to the unique needs of each visitor.",
+      "cardTitle": "The Yacht Club",
+      "cardText": "A members-only clubhouse boasting luxury amenities and a diverse calendar of social events",
+      "cardButton": "Join the Yacht Club",
+      "imageAlts": [
+        "Restaurant interior at the Yacht Club",
+        "Yachts berthed at the marina",
+        "The marina boardwalk",
+        "Visitors walking along the boardwalk"
+      ]
+    },
+    "faq": {
+      "title": "FAQs",
+      "items": [
+        {
+          "question": "What courses are available at the Academy?",
+          "answer": "The Academy runs RYA-accredited sailing, powerboating and other watersports courses for children and adults, at every skill level."
+        },
+        {
+          "question": "Do I need prior experience to join a course?",
+          "answer": "No. Our beginner courses start from scratch, and there are courses for every level after that."
+        },
+        {
+          "question": "How can I make a reservation at The Jeddah EDITION?",
+          "answer": "You can book directly on The Jeddah EDITION’s website, or contact us and our team will help you with your booking."
+        },
+        {
+          "question": "What amenities are available at the hotel?",
+          "answer": "The hotel has 63 luxury rooms, a spa, a gym and restaurants by a renowned chef."
+        },
+        {
+          "question": "What size yachts can the Marina accommodate?",
+          "answer": "The Marina welcomes yachts and superyachts of up to 120 metres."
+        },
+        {
+          "question": "What services are available at the Marina?",
+          "answer": "Berth holders enjoy high-speed Wi-Fi, round-the-clock security, fuelling and a personal concierge service."
+        },
+        {
+          "question": "How can I join the Yacht Club?",
+          "answer": "Send us a message through the contact form. Our team will share the membership details and can arrange a tour of the Marina."
+        },
+        {
+          "question": "What benefits come with Yacht Club membership?",
+          "answer": "Members are invited to exclusive events and get priority booking at the hotel and Marina, discounts at the restaurants and access to Academy courses."
+        }
+      ]
     }
   },
   "footer": {
