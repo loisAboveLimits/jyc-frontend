@@ -89,7 +89,7 @@ export default function MainNav({
       <ul
         id="mobile-menu"
         hidden={!open}
-        className="absolute end-0 top-full z-50 mt-3 w-[min(20rem,calc(100vw-2.5rem))] rounded-3xl bg-navy/95 p-3 shadow-2xl ring-1 ring-white/10 backdrop-blur-md xl:hidden"
+        className="absolute inset-e-0 top-full z-50 mt-3 w-[min(20rem,calc(100vw-2.5rem))] rounded-3xl bg-navy/95 p-3 shadow-2xl ring-1 ring-white/10 backdrop-blur-md xl:hidden"
       >
         {items.map((item) => {
           const active = isActive(item.path);

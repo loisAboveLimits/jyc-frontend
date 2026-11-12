@@ -15,8 +15,8 @@ export type PageHeroProps = {
   wideText?: boolean;
   /** Background photo (in /public). */
   image: string;
-  /** Frosted card at the bottom with a short intro and a link. */
-  intro?: { text: string; link: string; href: string };
+  /** Frosted card at the bottom with a short intro and (optionally) a link. */
+  intro?: { text: string; link?: string; href?: string };
 };
 
 /**
@@ -70,12 +70,14 @@ export default function PageHero({
             <p className="mx-auto max-w-6xl text-lg leading-relaxed text-white/80 sm:text-[23px] sm:leading-[1.5]">
               {intro.text}
             </p>
-            <a
-              href={intro.href}
-              className="mt-4 inline-block text-xl font-semibold text-teal transition-colors hover:text-gold"
-            >
-              {intro.link}
-            </a>
+            {intro.link && intro.href && (
+              <a
+                href={intro.href}
+                className="mt-4 inline-block text-xl font-semibold text-teal transition-colors hover:text-gold"
+              >
+                {intro.link}
+              </a>
+            )}
           </div>
         )}
       </div>

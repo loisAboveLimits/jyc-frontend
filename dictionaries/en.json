@@ -535,6 +535,93 @@
       "imageAlt": "Breakfast tray floating in a pool"
     }
   },
+  "academy": {
+    "hero": {
+      "title": "The Academy",
+      "text": "Train at the Academy, the largest RYA-accredited training facility in the Kingdom. As a driving force in watersports, the Academy is dedicated to nurturing the next generation of sailing enthusiasts in the region.",
+      "intro": "Our world-class training center"
+    },
+    "beacon": {
+      "title": "A Beacon For Maritime Education",
+      "text": "In partnership with the Saudi Sailing Federation, the Academy plays a pivotal role in expanding the reach of watersports in the Kingdom. Together, we have launched groundbreaking programs like Sailability, the first sailing program for people with disabilities.",
+      "imageAlt": "Young sailors in front of the Academy building"
+    },
+    "courses": {
+      "title": "Find a course",
+      "button": "Learn More",
+      "items": [
+        {
+          "title": "Youth Courses",
+          "text": "Enhance your sailing skills with our RYA courses for all ages and levels, guided by expert coaches to support beginners and aspiring competitors alike.",
+          "imageAlt": "Young sailors with their coach on a dinghy"
+        },
+        {
+          "title": "Adult sailing",
+          "text": "Learn to sail or take your skills further with RYA dinghy and keelboat courses for adults, from your very first time on the water to advanced sailing.",
+          "imageAlt": "Sailors smiling on a small sailing boat"
+        },
+        {
+          "title": "Powerboats",
+          "text": "Master powerboating with our RYA courses, designed for watersports enthusiasts and professionals seeking qualifications. Learn essential skills for confident and competent powerboat handling.",
+          "imageAlt": "Kayaks in front of the Yacht Club at sunset"
+        },
+        {
+          "title": "Shore-Based",
+          "text": "JYC Academy is training the next generation of maritime professionals in Saudi Arabia with RYA-recognized courses, including First Aid, Navigation, Day Skipper, Seamanship, Yacht Master, and VHF training.",
+          "imageAlt": "An instructor speaking to a group on the marina"
+        },
+        {
+          "title": "Lifeguard training",
+          "text": "Prioritizing water safety, we offer the top-rated Ellis & Associates International Lifeguard Training Program™ (ILTP®).",
+          "imageAlt": "The deck of a yacht with a dining table"
+        },
+        {
+          "title": "Corporate & Schools",
+          "text": "Our modern fleet and experienced instructors accommodate large groups, from school classes to corporate team-building events.",
+          "imageAlt": "Two children paddling a kayak in the marina"
+        }
+      ]
+    },
+    "sanctuary": {
+      "title": "A Sanctuary For Every Watersports Enthusiast",
+      "text": "Discover the most amazing marine experiences and our services specially designed for sea lovers.",
+      "button": "Learn More",
+      "items": [
+        {
+          "title": "Learn watersports",
+          "text": "The Academy boasts a fleet of training vessels for all skill levels, from dinghies to powerboats."
+        },
+        {
+          "title": "Become a maritime professional",
+          "text": "Explore programs for the next generation of maritime professionals, like first aid and VHF."
+        },
+        {
+          "title": "Join the community",
+          "text": "Become a valued part of a thriving and connected community of aquatic sports enthusiasts."
+        }
+      ]
+    },
+    "gallery": {
+      "title": "See The Academy In Action",
+      "imageAlts": [
+        "Children on a large paddleboard in the marina",
+        "A young sailor at the helm of a dinghy",
+        "The Academy reception",
+        "A small sailing boat out at sea",
+        "Golf buggies outside the Academy building",
+        "Kayakers in front of the Yacht Club",
+        "An instructor with children on a paddleboard",
+        "A buggy towing a paddleboard out of the boat store",
+        "Dinghies with their sails up on the slipway"
+      ]
+    },
+    "contact": {
+      "title": "Contact The Academy",
+      "text": "Learn more about our courses and marine experiences. Send us your details and the Academy team will help you find the right program.",
+      "subject": "Academy enquiry",
+      "imageAlt": "The Academy reception"
+    }
+  },
   "footer": {
     "about": "Explore the luxurious world of Jeddah Yacht Club with easy navigation to our services, exclusive membership details, and upcoming events",
     "quickLinks": "Quick Links",
