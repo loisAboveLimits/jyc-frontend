@@ -7,7 +7,7 @@ import OpeningHours from "@/components/OpeningHours";
 import type { Dictionary } from "@/lib/dictionaries";
 import { centerText } from "@/components/ui";
 import { localizedHref, type Locale } from "@/lib/i18n";
-import { mainPages } from "@/lib/pages";
+import { getMainNav } from "@/lib/menu";
 
 type Props = { lang: Locale; dict: Dictionary };
 
@@ -15,13 +15,9 @@ type Props = { lang: Locale; dict: Dictionary };
  * Site-wide header: utility links, logo and the main navigation.
  * It sits on top of the page (transparent), so pages start underneath it.
  */
-export default function SiteHeader({ lang, dict }: Props) {
-  const items = mainPages.map((page) => ({
-    key: page.key,
-    label: dict.nav[page.key],
-    href: localizedHref(lang, page.path),
-    path: page.path,
-  }));
+export default async function SiteHeader({ lang, dict }: Props) {
+  // Main navigation comes from the Drupal "main" menu.
+  const items = await getMainNav(lang, dict);
   // const contactHref = localizedHref(lang, "/contact");
   const contactHref = "https://wa.me";
 

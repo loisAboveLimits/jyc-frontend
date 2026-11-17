@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import CountUp from "@/components/CountUp";
 import { button, container } from "@/components/ui";
 import type { Dictionary } from "@/lib/dictionaries";
 import { localizedHref, type Locale } from "@/lib/i18n";
@@ -41,7 +42,9 @@ export default function Heritage({ lang, dict }: { lang: Locale; dict: Dictionar
               } ${index < 2 ? "border-b border-white/80" : ""}`}
             >
               <dt className="order-2 mt-1 text-base sm:text-[17px]">{counter.label}</dt>
-              <dd className="order-1 text-5xl font-semibold leading-tight">{counter.value}</dd>
+              <dd className="order-1 text-5xl font-semibold leading-tight">
+                <CountUp value={counter.value} />
+              </dd>
             </div>
           ))}
         </dl>

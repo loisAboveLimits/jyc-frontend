@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import BackToTop from "@/components/BackToTop";
 import MailtoForm from "@/components/MailtoForm";
 import {
   FacebookIcon,
@@ -41,7 +42,7 @@ export default function SiteFooter({ lang, dict }: Props) {
   return (
     <footer className="mt-auto pb-10 pt-16 lg:pt-24">
       <div className="mx-auto w-full max-w-[1340px] px-5 sm:px-8">
-        <div className="grid gap-10 rounded-2xl bg-white/10 p-7 sm:p-10 md:grid-cols-2 lg:grid-cols-[1.7fr_0.8fr_1fr_1.5fr] lg:gap-8 lg:p-11">
+        <div className="relative grid gap-10 rounded-2xl bg-white/10 p-7 sm:p-10 md:grid-cols-2 lg:grid-cols-[1.7fr_0.8fr_1fr_1.5fr] lg:gap-8 lg:p-11">
           {/* Logo + intro */}
           <div>
             <Link href={localizedHref(lang, "/")} className="inline-block">
@@ -140,6 +141,13 @@ export default function SiteFooter({ lang, dict }: Props) {
               </button>
             </MailtoForm>
           </div>
+
+          {/* Back to top: top corner of the panel (top-left in Arabic). Last in
+              the code so keyboard users reach it after the newsletter form. */}
+          <BackToTop
+            label={dict.common.backToTop}
+            className="absolute end-5 top-5 sm:end-6 sm:top-6"
+          />
         </div>
 
         <p className="mt-9 text-center text-sm text-white/90">{t.copyright}</p>

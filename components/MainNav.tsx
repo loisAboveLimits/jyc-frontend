@@ -46,7 +46,7 @@ export default function MainNav({
   }, [open]);
 
   return (
-    <nav aria-label={navLabel} className="relative xl:flex-1">
+    <nav aria-label={navLabel} className="relative xl:flex-1 drp-view">
       <div className="flex items-center justify-end gap-2 rounded-full bg-white/15 p-1.5 shadow-lg shadow-black/10 backdrop-blur-md xl:justify-between xl:gap-4 xl:p-2">
         {/* Desktop links */}
         <ul className="hidden items-center xl:flex">
