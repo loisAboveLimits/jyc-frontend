@@ -65,7 +65,8 @@
       "send": "إرسال",
       "emailLabel": "البريد الإلكتروني",
       "phoneLabel": "الهاتف"
-    }
+    },
+    "backToTop": "العودة إلى الأعلى"
   },
   "experiences": {
     "yachtClub": {

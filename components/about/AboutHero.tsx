@@ -1,4 +1,5 @@
 import Image from "next/image";
+import CountUp from "@/components/CountUp";
 import { container } from "@/components/ui";
 import type { Dictionary } from "@/lib/dictionaries";
 
@@ -60,7 +61,7 @@ export default function AboutHero({ dict }: { dict: Dictionary }) {
                 >
                   <dt className="order-2 mt-1 text-[15px] sm:text-base">{stat.label}</dt>
                   <dd dir="ltr" className="order-1 text-3xl font-bold text-gold sm:text-[34px]">
-                    {stat.value}
+                    <CountUp value={stat.value} />
                   </dd>
                 </div>
               ))}
