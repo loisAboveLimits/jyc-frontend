@@ -67,6 +67,28 @@
       "phoneLabel": "Phone"
     }
   },
+  "experiences": {
+    "yachtClub": {
+      "title": "The Yacht Club",
+      "text": "A members-only clubhouse boasting luxury amenities and a diverse calendar of social events",
+      "button": "Join the Yacht Club"
+    },
+    "hotel": {
+      "title": "The Jeddah EDITION",
+      "text": "A luxury lifestyle hotel on Jeddah Corniche, adjacent to the F1 track with stunning Red Sea views.",
+      "button": "Stay at the Hotel"
+    },
+    "academy": {
+      "title": "The Academy",
+      "text": "The largest RYA-accredited training facility in the Kingdom, offering water-sports courses for all ages.",
+      "button": "Learn at the Academy"
+    },
+    "marina": {
+      "title": "The Marina",
+      "text": "World-class berths for yachts up to 120 meters, surrounded by high-end dining and retail along the Boardwalk Berth at the Marina.",
+      "button": "Explore the Boardwalk"
+    }
+  },
   "home": {
     "hero": {
       "label": "Highlights",
@@ -121,9 +143,6 @@
       "eyebrow": "What We Offer",
       "title": "Jeddah Yacht Club & Marina",
       "text": "In the coastal heart of Saudi Arabia, JEDDAH YACHT CLUB & MARINA is an exquisite urban and recreational destination offering unparalleled experiences that are seamlessly designed to the unique needs of each visitor.",
-      "cardTitle": "The Yacht Club",
-      "cardText": "A members-only clubhouse boasting luxury amenities and a diverse calendar of social events",
-      "cardButton": "Join the Yacht Club",
       "imageAlts": [
         "Restaurant interior at the Yacht Club",
         "Yachts berthed at the marina",
@@ -334,9 +353,6 @@
     "experience": {
       "title": "How will you experience Jeddah Yacht Club & Marina?",
       "text": "In the coastal heart of Saudi Arabia, JEDDAH YACHT CLUB & MARINA is an exquisite urban and recreational destination offering unparalleled experiences that are seamlessly designed to the unique needs of each visitor.",
-      "cardTitle": "The Yacht Club",
-      "cardText": "A members-only clubhouse boasting luxury amenities and a diverse calendar of social events",
-      "cardButton": "Join the Yacht Club",
       "imageAlts": [
         "Restaurant interior at the Yacht Club",
         "Yachts berthed at the marina",

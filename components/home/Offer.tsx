@@ -1,11 +1,11 @@
 import OfferGrid from "@/components/OfferGrid";
 import { container, eyebrow } from "@/components/ui";
 import type { Dictionary } from "@/lib/dictionaries";
-import { localizedHref, type Locale } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n";
 
 const photos = ["offer-dining", "offer-berths", "offer-boardwalk", "offer-lifestyle"];
 
-/** "What We Offer": intro text, the Yacht Club card and four photos. */
+/** "What We Offer": intro text and four photos that open into cards on hover. */
 export default function Offer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   const t = dict.home.offer;
 
@@ -20,13 +20,8 @@ export default function Offer({ lang, dict }: { lang: Locale; dict: Dictionary }
 
         <OfferGrid
           className="mt-14"
-          card={{
-            image: "/images/home/offer-yacht-club.jpg",
-            title: t.cardTitle,
-            text: t.cardText,
-            button: t.cardButton,
-            href: localizedHref(lang, "/yacht-club"),
-          }}
+          lang={lang}
+          dict={dict}
           photos={photos.map((photo, index) => ({
             src: `/images/home/${photo}.jpg`,
             alt: t.imageAlts[index],

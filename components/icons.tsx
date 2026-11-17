@@ -223,3 +223,47 @@ export function CloseIcon(props: IconProps) {
     </svg>
   );
 }
+
+/* Line icons for the experience cards (OfferGrid). Drawn to match the design's
+   outline style; they use the current text colour. */
+const lineIcon = {
+  viewBox: "0 0 48 48",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.6,
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+  "aria-hidden": true,
+} as const;
+
+export function HotelIcon(props: IconProps) {
+  return (
+    <svg {...lineIcon} {...props}>
+      <path d="M4 44h40M9 44V12h30v32M15 4h18v8H15zM20 8h8" />
+      <path d="M14 17h4v4h-4zM22 17h4v4h-4zM30 17h4v4h-4zM14 25h4v4h-4zM22 25h4v4h-4zM30 25h4v4h-4z" />
+      <path d="M20 44v-9h8v9M24 35v9" />
+    </svg>
+  );
+}
+
+export function CourseIcon(props: IconProps) {
+  return (
+    <svg {...lineIcon} {...props}>
+      <path d="M29 4H10v38h16M29 4l7 7v15M29 4v7h7" />
+      <path d="M15 14h9M15 19h15M15 24h15M15 29h9" />
+      <path d="M23 36l11-5 11 5-11 5z" />
+      <path d="M27 38v4c3 2 11 2 14 0v-4M45 36v6" />
+    </svg>
+  );
+}
+
+export function MarinaIcon(props: IconProps) {
+  return (
+    <svg {...lineIcon} {...props}>
+      <path d="M4 20L24 6l20 14M9 17v10M39 17v10" />
+      <path d="M17 18h14v-6l-7-4-7 4zM21 18v-4h6v4" />
+      <path d="M8 31h32l-4 6H12zM16 31v-4h16v4" />
+      <path d="M4 42c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2 2.5-2 5-2 2.5 2 5 2 2.5-2 5-2 2.5 2 5 2" />
+    </svg>
+  );
+}
