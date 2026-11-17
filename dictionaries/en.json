@@ -69,10 +69,31 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "Yacht Club & Boat Rental",
-      "title": "Jeddah Yacht Club & Marina",
-      "subtitle": "Where Lifestyle Meets the Sea",
-      "text": "Welcome to Jeddah Yacht Club & Marina, showcasing our unique amenities and high-end experiences"
+      "label": "Highlights",
+      "slide": "Slide {current} of {total}",
+      "slides": [
+        {
+          "eyebrow": "Yacht Club & Boat Rental",
+          "title": "Jeddah Yacht Club & Marina",
+          "subtitle": "Where Lifestyle Meets the Sea",
+          "text": "Welcome to Jeddah Yacht Club & Marina, showcasing our unique amenities and high-end experiences",
+          "imageAlt": ""
+        },
+        {
+          "eyebrow": "The Yacht Club",
+          "title": "An Iconic Clubhouse on the Red Sea",
+          "subtitle": "Private lounges, dining & wellness",
+          "text": "Step into the sail-shaped clubhouse on the Jeddah Waterfront, home to exceptional experiences for members and guests.",
+          "imageAlt": "Jeddah Yacht Club's sail-shaped clubhouse and marina from above"
+        },
+        {
+          "eyebrow": "The Marina",
+          "title": "Berth Where the Sun Sets",
+          "subtitle": "95 berths for yachts up to 120 meters",
+          "text": "Five-star docking facilities, 24/7 security and personalized services, making every arrival and departure effortless.",
+          "imageAlt": "A superyacht in the marina at sunset"
+        }
+      ]
     },
     "features": [
       {

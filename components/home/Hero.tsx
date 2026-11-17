@@ -1,72 +1,38 @@
-import Image from "next/image";
 import Link from "next/link";
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  DineIcon,
-  ShopIcon,
-  StayIcon,
-} from "@/components/icons";
-import { arrowButton, button, container } from "@/components/ui";
+import HeroSlider, { type HeroSlide } from "@/components/home/HeroSlider";
+import { DineIcon, ShopIcon, StayIcon } from "@/components/icons";
+import { button, container } from "@/components/ui";
 import type { Dictionary } from "@/lib/dictionaries";
 import { localizedHref, type Locale } from "@/lib/i18n";
 
 const featureIcons = [DineIcon, ShopIcon, StayIcon];
 
-/** Top of the home page: background video, headline and the Dine / Shop / Stay cards. */
+/**
+ * Background of each banner slide, in the same order as home.hero.slides in
+ * the dictionaries (max 3). Mix photos and videos as you like.
+ */
+const slideMedia: HeroSlide["media"][] = [
+  { type: "video", src: "/videos/hero.mp4", poster: "/images/home/hero.jpg" },
+  { type: "image", src: "/images/home/hero-clubhouse.jpg", position: "20% center" },
+  { type: "image", src: "/images/home/hero-sunset.jpg" },
+];
+
+/** Top of the home page: banner slider (video + photos) and the Dine / Shop / Stay cards. */
 export default function Hero({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   const t = dict.home.hero;
 
   return (
     <section className="relative isolate overflow-hidden bg-navy">
-      {/* Background: still image, with the video on top when motion is allowed.
-          Mirrored in Arabic so the boat stays on the side opposite the text. */}
-      <div className="absolute inset-0 -z-10 rtl:-scale-x-100">
-        <Image
-          src="/images/home/hero.jpg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[70%_center]"
-        />
-        <video
-          className="absolute inset-0 size-full object-cover object-[70%_center] motion-reduce:hidden"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="/images/home/hero.jpg"
-          aria-hidden="true"
-          tabIndex={-1}
-        >
-          <source src="/videos/hero.mp4" type="video/mp4" />
-        </video>
-        {/* Darken the top (behind the menu), the text side, and the bottom edge */}
-        <div className="absolute inset-0 bg-linear-to-b from-navy via-navy/10 to-navy/90" />
-        <div className="absolute inset-0 bg-linear-to-r from-navy via-navy/70 to-transparent md:via-navy/50" />
-      </div>
-
       <div className={`${container} pb-12 pt-44 sm:pt-52 lg:pb-16 lg:pt-64`}>
-        <div className="max-w-2xl">
-          <p className="text-xl sm:text-2xl">{t.eyebrow}</p>
-          <h1 className="mt-3 text-5xl font-bold leading-[1.15] sm:text-6xl lg:text-[76px] lg:leading-[1.18]">
-            {t.title}
-          </h1>
-          <p className="mt-8 text-2xl font-semibold sm:text-4xl">{t.subtitle}</p>
-          <p className="mt-4 text-lg leading-relaxed sm:text-2xl sm:leading-[1.9]">{t.text}</p>
-
-          {/* Slider arrows (one slide for now; they become active when more slides are added) */}
-          <div className="mt-12 flex gap-3">
-            <button type="button" aria-label={dict.common.previous} className={`${arrowButton} bg-white/20 hover:bg-white/30`}>
-              <ChevronLeftIcon className="rtl:rotate-180" />
-            </button>
-            <button type="button" aria-label={dict.common.next} className={`${arrowButton} bg-gold/80 hover:bg-gold`}>
-              <ChevronRightIcon className="rtl:rotate-180" />
-            </button>
-          </div>
-        </div>
+        <HeroSlider
+          slides={t.slides.map((slide, index) => ({ ...slide, media: slideMedia[index] }))}
+          labels={{
+            label: t.label,
+            slide: t.slide,
+            previous: dict.common.previous,
+            next: dict.common.next,
+          }}
+        />
 
         {/* Dine / Shop / Stay */}
         <ul className="mt-16 grid gap-5 md:grid-cols-3 lg:mt-24 lg:gap-7">
