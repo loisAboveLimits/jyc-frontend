@@ -35,7 +35,7 @@ export default function ContactInfo({ dict }: { dict: Dictionary }) {
             className="object-cover"
           />
           {/* Fades into the page on the side facing the details (large screens) */}
-          <div className="absolute inset-y-0 end-0 hidden w-1/4 from-transparent to-navy-deep lg:block ltr:bg-linear-to-r rtl:bg-linear-to-l" />
+          <div className="absolute inset-y-0 end-0 hidden w-1/4 from-transparent to-navy lg:block ltr:bg-linear-to-r rtl:bg-linear-to-l" />
         </div>
 
         <div>

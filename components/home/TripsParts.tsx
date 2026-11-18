@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ChevronLeftIcon, ChevronRightIcon, StarIcon } from "@/components/icons";
-import { arrowButton, button, container, eyebrow, softBand } from "@/components/ui";
+import { arrowButton, button, container, eyebrow } from "@/components/ui";
 
 /**
  * Pieces of the "Book your Experience" section that work on the server and in
@@ -88,7 +88,7 @@ export function TripsFrame({
   children: ReactNode;
 }) {
   return (
-    <section className={`${softBand} py-10 lg:py-12`}>
+    <section className="bg-navy-soft py-10 lg:py-12">
       <div className={`${container} grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,2.2fr)] lg:gap-14`}>
         <div>
           <div className="flex gap-3">

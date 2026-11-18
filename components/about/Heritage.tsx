@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import CountUp from "@/components/CountUp";
-import EdgeFades from "@/components/EdgeFades";
 import { button, container } from "@/components/ui";
 import type { Dictionary } from "@/lib/dictionaries";
 import { localizedHref, type Locale } from "@/lib/i18n";
@@ -21,7 +20,6 @@ export default function Heritage({ lang, dict }: { lang: Locale; dict: Dictionar
       />
       <div className="absolute inset-0 -z-10 bg-navy/55" />
       <div className="absolute inset-0 -z-10 bg-linear-to-r from-navy/60 to-transparent rtl:bg-linear-to-l" />
-      <EdgeFades />
 
       <div className={`${container} grid items-center gap-12 lg:grid-cols-2 lg:gap-16`}>
         <div className="lg:ps-4">

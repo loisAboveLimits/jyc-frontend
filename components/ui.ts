@@ -22,15 +22,6 @@ export const button = {
   outline: `${pill} border border-white text-white hover:bg-white hover:text-navy`,
 };
 
-/**
- * Background for a lighter navy band between dark sections: solid navy-soft
- * in the middle, fading into the page background (navy-deep) at the top and
- * bottom so there is no hard line between sections.
- */
-export const softBand =
-  // navy-deep #06192a → navy-soft #1b2d3f (hex, because the theme is `@theme inline`)
-  "bg-[linear-gradient(to_bottom,#06192a,#1b2d3f_22%,#1b2d3f_78%,#06192a)]";
-
 /** Small teal label above section headings. */
 export const eyebrow = "text-xl font-semibold text-teal";
 

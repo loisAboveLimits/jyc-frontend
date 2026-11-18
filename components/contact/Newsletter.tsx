@@ -1,5 +1,4 @@
 import Image from "next/image";
-import EdgeFades from "@/components/EdgeFades";
 import { DownloadIcon } from "@/components/icons";
 import MailtoForm from "@/components/MailtoForm";
 import { CONTACT_EMAIL } from "@/components/SiteFooter";
@@ -18,7 +17,6 @@ export default function Newsletter({ dict, newsHref }: { dict: Dictionary; newsH
     <section className="relative isolate overflow-hidden py-14 sm:py-16">
       <Image src="/images/yacht-club/hero.jpg" alt="" fill sizes="100vw" className="-z-10 object-cover" />
       <div className="absolute inset-0 -z-10 bg-navy-deep/45" />
-      <EdgeFades size="h-12 lg:h-20" />
 
       <div className="mx-auto w-full max-w-3xl px-5 text-center sm:px-8">
         <h2 className="text-3xl font-bold sm:text-[40px]">{t.title}</h2>
