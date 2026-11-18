@@ -485,17 +485,17 @@
     },
     "stats": [
       {
-        "value": 0,
+        "value": 3000,
         "suffix": "+",
         "label": "Members"
       },
       {
-        "value": 0,
+        "value": 87,
         "suffix": "%",
         "label": "Member satisfaction"
       },
       {
-        "value": 0,
+        "value": 300,
         "suffix": "+",
         "label": "Events in 2024"
       }

@@ -485,17 +485,17 @@
     },
     "stats": [
       {
-        "value": 0,
+        "value": 3000,
         "suffix": "+",
         "label": "عضو"
       },
       {
-        "value": 0,
+        "value": 87,
         "suffix": "%",
         "label": "رضا الأعضاء"
       },
       {
-        "value": 0,
+        "value": 300,
         "suffix": "+",
         "label": "فعالية في 2024"
       }
