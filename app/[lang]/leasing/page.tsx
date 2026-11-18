@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ContactPanel from "@/components/ContactPanel";
 import { mainPageMetadata, type LangParams } from "@/components/MainPage";
+import DrupalHero from "@/components/DrupalHero";
 import PageHero from "@/components/PageHero";
+import { PAGE_NODE_IDS } from "@/lib/banners";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale } from "@/lib/i18n";
 
@@ -27,13 +29,21 @@ export default async function LeasingPage({ params }: Props) {
 
   return (
     <main className="flex-1">
-      <PageHero
+      <DrupalHero
+        nodeId={PAGE_NODE_IDS.leasing}
         lang={lang}
-        breadcrumb={{ home: dict.common.breadcrumbHome, label: dict.common.breadcrumbLabel }}
-        crumb={dict.nav.leasing}
-        title={t.title}
-        image="/images/leasing/hero.jpg"
-        compact
+        dict={dict}
+        breadcrumb={{ current: dict.nav.leasing }}
+        fallback={
+          <PageHero
+            lang={lang}
+            breadcrumb={{ home: dict.common.breadcrumbHome, label: dict.common.breadcrumbLabel }}
+            crumb={dict.nav.leasing}
+            title={t.title}
+            image="/images/leasing/hero.jpg"
+            compact
+          />
+        }
       />
       <ContactPanel
         id="leasing-contact"

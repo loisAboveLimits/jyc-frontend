@@ -17,13 +17,17 @@ const slideMedia: HeroSlide["media"][] = [
   { type: "image", src: "/images/home/hero-sunset.jpg" },
 ];
 
-/** Top of the home page: banner slider (video + photos) and the Dine / Shop / Stay cards. */
+/**
+ * Top of the home page: banner slider (video + photos) and the Dine / Shop / Stay cards.
+ * This is the built-in version, used when Drupal has no banners for the home
+ * page (see <DrupalHero> in app/[lang]/page.tsx).
+ */
 export default function Hero({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   const t = dict.home.hero;
 
   return (
     <section className="relative isolate overflow-hidden bg-navy">
-      <div className={`${container} pb-12 pt-44 sm:pt-52 lg:pb-16 lg:pt-64`}>
+      <div className={`${container} pb-12 pt-44 sm:pt-52 lg:pb-16 lg:pt-64 hero`}>
         <HeroSlider
           slides={t.slides.map((slide, index) => ({ ...slide, media: slideMedia[index] }))}
           labels={{
@@ -33,31 +37,36 @@ export default function Hero({ lang, dict }: { lang: Locale; dict: Dictionary })
             next: dict.common.next,
           }}
         />
-
-        {/* Dine / Shop / Stay */}
-        <ul className="mt-16 grid gap-5 md:grid-cols-3 lg:mt-24 lg:gap-7">
-          {dict.home.features.map((feature, index) => {
-            const Icon = featureIcons[index];
-            return (
-              <li
-                key={feature.title}
-                className="group flex flex-col items-center rounded-[13px] border border-transparent bg-white/[0.09] px-6 pb-5 pt-6 text-center shadow-[0_4px_4px_rgba(0,0,0,0.25)] backdrop-blur-md transition-colors hover:border-teal"
-              >
-                <Icon className="h-10 w-auto" />
-                <h2 className="mt-1 text-2xl font-bold leading-10 text-teal">{feature.title}</h2>
-                <p className="max-w-[359px] text-sm leading-[22px]">{feature.text}</p>
-                <Link
-                  href={localizedHref(lang, "/yacht-club")}
-                  className={`${button.glass} mt-4 min-h-10 min-w-[184px] bg-white/[0.14] text-[15px] font-bold group-hover:bg-gold/70`}
-                >
-                  {dict.common.viewDetails}
-                  <span className="sr-only">: {feature.title}</span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        <HomeFeatures lang={lang} dict={dict} />
       </div>
     </section>
+  );
+}
+
+/** The Dine / Shop / Stay cards under the home banner. */
+export function HomeFeatures({ lang, dict }: { lang: Locale; dict: Dictionary }) {
+  return (
+    <ul className="mt-16 grid gap-5 md:grid-cols-3 lg:mt-24 lg:gap-7">
+      {dict.home.features.map((feature, index) => {
+        const Icon = featureIcons[index];
+        return (
+          <li
+            key={feature.title}
+            className="group flex flex-col items-center rounded-[13px] border border-transparent bg-white/[0.09] px-6 pb-5 pt-6 text-center shadow-[0_4px_4px_rgba(0,0,0,0.25)] backdrop-blur-md transition-colors hover:border-teal"
+          >
+            <Icon className="h-10 w-auto" />
+            <h2 className="mt-1 text-2xl font-bold leading-10 text-teal">{feature.title}</h2>
+            <p className="max-w-[359px] text-sm leading-[22px]">{feature.text}</p>
+            <Link
+              href={localizedHref(lang, "/yacht-club")}
+              className={`${button.glass} mt-4 min-h-10 min-w-[184px] bg-white/[0.14] text-[15px] font-bold group-hover:bg-gold/70`}
+            >
+              {dict.common.viewDetails}
+              <span className="sr-only">: {feature.title}</span>
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
   );
 }

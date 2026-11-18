@@ -5,7 +5,9 @@ import Faq from "@/components/Faq";
 import { mainPageMetadata, type LangParams } from "@/components/MainPage";
 import MarinaCards from "@/components/marina/MarinaCards";
 import PortStrip from "@/components/marina/PortStrip";
+import DrupalHero from "@/components/DrupalHero";
 import PageHero from "@/components/PageHero";
+import { PAGE_NODE_IDS } from "@/lib/banners";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale } from "@/lib/i18n";
 
@@ -28,15 +30,23 @@ export default async function MarinaPage({ params }: Props) {
 
   return (
     <main className="flex-1">
-      <PageHero
+      <DrupalHero
+        nodeId={PAGE_NODE_IDS.marina}
         lang={lang}
-        breadcrumb={{ home: dict.common.breadcrumbHome, label: dict.common.breadcrumbLabel }}
-        crumb={dict.nav.marina}
-        title={t.hero.title}
-        text={t.hero.text}
-        wideText
-        image="/images/marina/hero.jpg"
-        intro={{ text: t.hero.intro, link: t.hero.apply, href: `#${CONTACT_ID}` }}
+        dict={dict}
+        breadcrumb={{ current: dict.nav.marina }}
+        fallback={
+          <PageHero
+            lang={lang}
+            breadcrumb={{ home: dict.common.breadcrumbHome, label: dict.common.breadcrumbLabel }}
+            crumb={dict.nav.marina}
+            title={t.hero.title}
+            text={t.hero.text}
+            wideText
+            image="/images/marina/hero.jpg"
+            intro={{ text: t.hero.intro, link: t.hero.apply, href: `#${CONTACT_ID}` }}
+          />
+        }
       />
       <MarinaCards dict={dict} contactHref={`#${CONTACT_ID}`} />
       <PortStrip dict={dict} />

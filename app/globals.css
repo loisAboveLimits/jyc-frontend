@@ -37,3 +37,59 @@ body {
     transform: scale(1);
   }
 }
+
+/*
+ * Hero text entrance: the same motion as the home slider captions. Each line
+ * fades in while sliding from its side (top / right / left / bottom; sideways
+ * moves mirrored in Arabic), one after another. Use heroIn() from
+ * components/ui.ts. The lines wait (hidden) until the page loader starts
+ * fading out (html[data-page-ready], set by PageLoader), so the movement is
+ * seen on every page load and every page change.
+ */
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: var(--hero-from);
+  }
+}
+.hero-in {
+  --hd: 1;
+  animation: hero-in 800ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-play-state: paused;
+}
+[dir="rtl"] .hero-in {
+  --hd: -1;
+}
+html[data-page-ready] .hero-in {
+  animation-play-state: running;
+}
+.hero-in-top {
+  --hero-from: translateY(-40px);
+}
+.hero-in-right {
+  --hero-from: translateX(calc(80px * var(--hd)));
+}
+.hero-in-left {
+  --hero-from: translateX(calc(-80px * var(--hd)));
+}
+.hero-in-bottom {
+  --hero-from: translateY(40px);
+}
+/* Same timing as the slider: 450ms, then 150ms between lines. */
+.hero-in-0 {
+  animation-delay: 450ms;
+}
+.hero-in-1 {
+  animation-delay: 600ms;
+}
+.hero-in-2 {
+  animation-delay: 750ms;
+}
+.hero-in-3 {
+  animation-delay: 900ms;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-in {
+    animation: none;
+  }
+}

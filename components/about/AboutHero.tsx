@@ -1,6 +1,6 @@
 import Image from "next/image";
 import CountUp from "@/components/CountUp";
-import { container } from "@/components/ui";
+import { container, heroIn } from "@/components/ui";
 import type { Dictionary } from "@/lib/dictionaries";
 
 /**
@@ -13,7 +13,7 @@ export default function AboutHero({ dict }: { dict: Dictionary }) {
   return (
     <section className="relative isolate overflow-hidden bg-navy">
       {/* Background photo, fading into navy under the menu and at the bottom */}
-      <div className="absolute inset-x-0 top-0 -z-10 h-[640px] sm:h-[760px] lg:h-[830px]">
+      <div className="absolute inset-x-0 top-0 -z-10 h-[640px] sm:h-[760px] lg:h-[830px] hero">
         <Image
           src="/images/about/hero-pool.jpg"
           alt=""
@@ -34,8 +34,8 @@ export default function AboutHero({ dict }: { dict: Dictionary }) {
       />
 
       <div className={`${container} pb-16 pt-44 sm:pt-56 lg:pb-24 lg:pt-[340px]`}>
-        <h1 className="text-5xl font-bold sm:text-6xl lg:text-[64px]">{t.title}</h1>
-        <p className="mt-5 text-xl sm:text-[22px]">{t.subtitle}</p>
+        <h1 className={`text-5xl font-bold sm:text-6xl lg:text-[64px] ${heroIn("right", 1)}`}>{t.title}</h1>
+        <p className={`mt-5 text-xl sm:text-[22px] ${heroIn("left", 2)}`}>{t.subtitle}</p>
 
         <h2 className="mt-24 text-3xl font-bold leading-tight text-teal sm:mt-32 sm:text-[40px] lg:mt-[200px]">
           {t.introTitle}

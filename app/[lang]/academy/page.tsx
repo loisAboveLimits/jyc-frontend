@@ -7,7 +7,9 @@ import { ACADEMY_EMAIL, ACADEMY_PHONE } from "@/components/academy/links";
 import Sanctuary from "@/components/academy/Sanctuary";
 import ContactPanel from "@/components/ContactPanel";
 import { mainPageMetadata, type LangParams } from "@/components/MainPage";
+import DrupalHero from "@/components/DrupalHero";
 import PageHero from "@/components/PageHero";
+import { PAGE_NODE_IDS } from "@/lib/banners";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale } from "@/lib/i18n";
 
@@ -50,15 +52,23 @@ export default async function AcademyPage({ params }: Props) {
 
   return (
     <main className="flex-1">
-      <PageHero
+      <DrupalHero
+        nodeId={PAGE_NODE_IDS.academy}
         lang={lang}
-        breadcrumb={{ home: dict.common.breadcrumbHome, label: dict.common.breadcrumbLabel }}
-        crumb={dict.nav.academy}
-        title={t.hero.title}
-        text={t.hero.text}
-        wideText
-        image="/images/academy/hero.jpg"
-        intro={{ text: t.hero.intro }}
+        dict={dict}
+        breadcrumb={{ current: dict.nav.academy }}
+        fallback={
+          <PageHero
+            lang={lang}
+            breadcrumb={{ home: dict.common.breadcrumbHome, label: dict.common.breadcrumbLabel }}
+            crumb={dict.nav.academy}
+            title={t.hero.title}
+            text={t.hero.text}
+            wideText
+            image="/images/academy/hero.jpg"
+            intro={{ text: t.hero.intro }}
+          />
+        }
       />
       <Beacon dict={dict} />
       <Courses dict={dict} />

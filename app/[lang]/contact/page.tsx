@@ -7,7 +7,9 @@ import ContactInfo from "@/components/contact/ContactInfo";
 import Newsletter from "@/components/contact/Newsletter";
 import Faq from "@/components/Faq";
 import { mainPageMetadata, type LangParams } from "@/components/MainPage";
+import DrupalHero from "@/components/DrupalHero";
 import PageHero from "@/components/PageHero";
+import { PAGE_NODE_IDS } from "@/lib/banners";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale } from "@/lib/i18n";
 
@@ -36,15 +38,23 @@ export default async function ContactPage({ params }: Props) {
 
   return (
     <main className="flex-1">
-      <PageHero
+      <DrupalHero
+        nodeId={PAGE_NODE_IDS.contact}
         lang={lang}
-        breadcrumb={{ home: dict.common.breadcrumbHome, label: dict.common.breadcrumbLabel }}
-        crumb={dict.nav.contact}
-        title={t.hero.title}
-        text={t.hero.text}
-        wideText
-        image="/images/contact/hero.jpg"
-        compact
+        dict={dict}
+        breadcrumb={{ current: dict.nav.contact }}
+        fallback={
+          <PageHero
+            lang={lang}
+            breadcrumb={{ home: dict.common.breadcrumbHome, label: dict.common.breadcrumbLabel }}
+            crumb={dict.nav.contact}
+            title={t.hero.title}
+            text={t.hero.text}
+            wideText
+            image="/images/contact/hero.jpg"
+            compact
+          />
+        }
       />
       <ContactInfo dict={dict} />
       <ContactForm dict={dict} />

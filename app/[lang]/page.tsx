@@ -6,11 +6,13 @@ import Blog from "@/components/home/Blog";
 import Contact from "@/components/home/Contact";
 import Events from "@/components/home/Events";
 import Gallery from "@/components/home/Gallery";
-import Hero from "@/components/home/Hero";
+import DrupalHero from "@/components/DrupalHero";
+import Hero, { HomeFeatures } from "@/components/home/Hero";
 import Offer from "@/components/home/Offer";
 import Trips from "@/components/home/Trips";
 import { TripsFallback, type TripsProps } from "@/components/home/TripsParts";
 import { mainPageMetadata } from "@/components/MainPage";
+import { PAGE_NODE_IDS } from "@/lib/banners";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale, localizedHref } from "@/lib/i18n";
 
@@ -58,7 +60,17 @@ export default async function Home({ params }: Props) {
 
   return (
     <main className="flex-1">
-      <Hero lang={lang} dict={dict} />
+      {/* Drupal home page (node 1): its banners in the slider, with its field_content
+          under them. Without banners: the original built-in hero, as before Drupal. */}
+      <DrupalHero
+        nodeId={PAGE_NODE_IDS.home}
+        lang={lang}
+        dict={dict}
+        blendInto="navy"
+        fallback={<Hero lang={lang} dict={dict} />}
+      >
+        <HomeFeatures lang={lang} dict={dict} />
+      </DrupalHero>
       <About lang={lang} dict={dict} />
       <Offer lang={lang} dict={dict} />
       {/*

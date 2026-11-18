@@ -14,7 +14,7 @@ type Props = {
  * Returns null (shown as-is, no animation) for things that aren't a single
  * amount, like "24/7" or "9:30".
  */
-function parse(value: string) {
+export function parse(value: string) {
   const match = value.match(/^(\D*?)(\d[\d,]*(?:\.\d+)?)(.*)$/);
   if (!match) return null;
   const [, prefix, number, suffix] = match;

@@ -19,8 +19,22 @@ const CAPTION_STAGGER = 150;
 export type HeroSlide = {
   /** Background: a photo, or a video (with a photo shown while it loads). */
   media:
-    | { type: "image"; src: string; /** CSS object-position, e.g. "30% center" */ position?: string }
-    | { type: "video"; src: string; poster: string };
+    | {
+        type: "image";
+        src: string;
+        /** CSS object-position, e.g. "30% center" */
+        position?: string;
+        /** Full URL from another server (Drupal): shown as-is, not resized by Next.js. */
+        remote?: boolean;
+      }
+    | {
+        type: "video";
+        src: string;
+        /** Photo shown while the video loads (optional). */
+        poster?: string;
+        /** e.g. "video/mp4" (default) or "video/webm". */
+        mime?: string;
+      };
   eyebrow: string;
   title: string;
   subtitle: string;
@@ -61,8 +75,17 @@ export default function HeroSlider({
 
   useEffect(() => {
     setReducedMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-    const timer = window.setTimeout(() => setReady(true), 50);
-    return () => window.clearTimeout(timer);
+    // Captions animate in once the page loader starts fading out (see PageLoader).
+    let timer: number | undefined;
+    const start = () => {
+      timer = window.setTimeout(() => setReady(true), 50);
+    };
+    if (document.documentElement.hasAttribute("data-page-ready")) start();
+    else window.addEventListener("jyc:page-ready", start, { once: true });
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("jyc:page-ready", start);
+    };
   }, []);
 
   // Move on by itself.
@@ -118,7 +141,7 @@ export default function HeroSlider({
     <>
       {/* Backgrounds, stacked; the showing one fades in over the others.
           Mirrored in Arabic so the subject stays on the side opposite the text. */}
-      <div className="absolute inset-0 -z-10 rtl:-scale-x-100">
+      <div className="absolute inset-0 -z-10 rtl:-scale-x-100 drp-view">
         {slides.map((slide, index) => {
           const active = index === current;
           return (
@@ -130,19 +153,25 @@ export default function HeroSlider({
             >
               {slide.media.type === "video" ? (
                 <>
-                  <Image
-                    src={slide.media.poster}
-                    alt=""
-                    fill
-                    priority={index === 0}
-                    sizes="100vw"
-                    className="object-cover object-[70%_center]"
-                  />
+                  {slide.media.poster && (
+                    <Image
+                      src={slide.media.poster}
+                      alt=""
+                      fill
+                      priority={index === 0}
+                      sizes="100vw"
+                      className="object-cover object-[70%_center]"
+                    />
+                  )}
                   <video
                     ref={(el) => {
                       videos.current[index] = el;
                     }}
-                    className="absolute inset-0 size-full object-cover object-[70%_center] motion-reduce:hidden"
+                    // With reduced motion the poster photo is shown instead; a video
+                    // without a poster stays visible, paused on its first frame.
+                    className={`absolute inset-0 size-full object-cover object-[70%_center] ${
+                      slide.media.poster ? "motion-reduce:hidden" : ""
+                    }`}
                     autoPlay={index === 0}
                     muted
                     loop
@@ -151,7 +180,7 @@ export default function HeroSlider({
                     poster={slide.media.poster}
                     tabIndex={-1}
                   >
-                    <source src={slide.media.src} type="video/mp4" />
+                    <source src={slide.media.src} type={slide.media.mime || "video/mp4"} />
                   </video>
                 </>
               ) : (
@@ -161,6 +190,7 @@ export default function HeroSlider({
                   fill
                   priority={index === 0}
                   sizes="100vw"
+                  unoptimized={slide.media.remote}
                   className="object-cover"
                   style={{ objectPosition: slide.media.position ?? "65% center" }}
                 />
@@ -222,7 +252,7 @@ export default function HeroSlider({
                 <p className="mt-8 text-2xl font-semibold sm:text-4xl" style={caption(active, "left", 2)}>
                   {slide.subtitle}
                 </p>
-                <p className="mt-4 text-lg leading-none sm:text-2xl sm:leading-none" style={caption(active, "bottom", 3)}>
+                <p className="mt-4 text-lg leading-[1.5] sm:text-2xl" style={caption(active, "bottom", 3)}>
                   {slide.text}
                 </p>
               </div>

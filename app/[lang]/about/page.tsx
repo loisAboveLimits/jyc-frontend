@@ -8,8 +8,10 @@ import Heritage from "@/components/about/Heritage";
 import InsideGallery from "@/components/about/InsideGallery";
 import Team from "@/components/about/Team";
 import { TeamFallback, type TeamProps } from "@/components/about/TeamParts";
+import DrupalHero from "@/components/DrupalHero";
 import Faq from "@/components/Faq";
 import { mainPageMetadata, type LangParams } from "@/components/MainPage";
+import { PAGE_NODE_IDS } from "@/lib/banners";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale } from "@/lib/i18n";
 
@@ -47,7 +49,12 @@ export default async function AboutPage({ params }: Props) {
 
   return (
     <main className="flex-1">
-      <AboutHero dict={dict} />
+      <DrupalHero
+        nodeId={PAGE_NODE_IDS.about}
+        lang={lang}
+        dict={dict}
+        fallback={<AboutHero dict={dict} />}
+      />
       <Heritage lang={lang} dict={dict} />
       <AcademyCards lang={lang} dict={dict} />
       <InsideGallery dict={dict} />

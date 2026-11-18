@@ -4,10 +4,12 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ContactPanel from "@/components/ContactPanel";
 import { mainPageMetadata, type LangParams } from "@/components/MainPage";
+import DrupalHero from "@/components/DrupalHero";
 import PageHero from "@/components/PageHero";
 import Benefits from "@/components/yacht-club/Benefits";
 import FeatureRows from "@/components/yacht-club/FeatureRows";
 import Testimonials from "@/components/yacht-club/Testimonials";
+import { PAGE_NODE_IDS } from "@/lib/banners";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale } from "@/lib/i18n";
 
@@ -37,13 +39,21 @@ export default async function YachtClubPage({ params }: Props) {
 
   return (
     <main className="flex-1">
-      <PageHero
+      <DrupalHero
+        nodeId={PAGE_NODE_IDS.yachtClub}
         lang={lang}
-        breadcrumb={{ home: dict.common.breadcrumbHome, label: dict.common.breadcrumbLabel }}
-        title={t.hero.title}
-        text={t.hero.text}
-        image="/images/yacht-club/hero.jpg"
-        intro={{ text: t.hero.intro, link: t.hero.apply, href: "#yacht-club-contact" }}
+        dict={dict}
+        breadcrumb={{ current: dict.nav.yachtClub }}
+        fallback={
+          <PageHero
+            lang={lang}
+            breadcrumb={{ home: dict.common.breadcrumbHome, label: dict.common.breadcrumbLabel }}
+            title={t.hero.title}
+            text={t.hero.text}
+            image="/images/yacht-club/hero.jpg"
+            intro={{ text: t.hero.intro, link: t.hero.apply, href: "#yacht-club-contact" }}
+          />
+        }
       />
       <FeatureRows dict={dict} brochureHref={brochureHref} />
       <Benefits title={benefits.title} items={benefits.items} imageAlt={benefits.imageAlt} />

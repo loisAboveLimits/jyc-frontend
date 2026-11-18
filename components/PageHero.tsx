@@ -1,9 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
-import { Fragment } from "react";
+import Breadcrumb from "@/components/Breadcrumb";
 import { CalendarIcon } from "@/components/icons";
-import { container } from "@/components/ui";
-import { localizedHref, type Locale } from "@/lib/i18n";
+import { container, heroIn } from "@/components/ui";
+import type { Locale } from "@/lib/i18n";
 
 export type PageHeroProps = {
   lang: Locale;
@@ -80,37 +79,24 @@ export default function PageHero({
       />
 
       <div className={`${container} pt-44 sm:pt-56 lg:pt-[340px] ${compact ? "pb-20 lg:pb-32" : "pb-16 lg:pb-24"}`}>
-        <nav aria-label={breadcrumb.label} className="text-lg text-teal sm:text-xl">
-          <ol className="flex flex-wrap items-center gap-2">
-            <li>
-              <Link href={localizedHref(lang, "/")} className="underline underline-offset-4 hover:text-white">
-                {breadcrumb.home}
-              </Link>
-            </li>
-            {parents.map((parent) => (
-              <Fragment key={parent.href}>
-                <li aria-hidden="true">/</li>
-                <li>
-                  <Link href={parent.href} className="underline underline-offset-4 hover:text-white">
-                    {parent.label}
-                  </Link>
-                </li>
-              </Fragment>
-            ))}
-            <li aria-hidden="true">/</li>
-            <li aria-current="page">{crumb ?? title}</li>
-          </ol>
-        </nav>
-        <h1 className="mt-4 max-w-5xl text-4xl font-bold leading-tight sm:text-6xl lg:text-[64px]">{title}</h1>
+        <Breadcrumb
+          lang={lang}
+          home={breadcrumb.home}
+          label={breadcrumb.label}
+          parents={parents}
+          current={crumb ?? title}
+          className={heroIn("top", 0)}
+        />
+        <h1 className={`mt-4 max-w-5xl text-4xl font-bold leading-tight sm:text-6xl lg:text-[64px] ${heroIn("right", 1)}`}>{title}</h1>
         {date && (
-          <p className="mt-5 flex items-center gap-2 text-lg text-white/85">
+          <p className={`mt-5 flex items-center gap-2 text-lg text-white/85 ${heroIn("left", 2)}`}>
             <CalendarIcon className="size-5 shrink-0 text-gold" />
             <span className="sr-only">{date.prefix} </span>
             <time dateTime={date.dateTime}>{date.label}</time>
           </p>
         )}
         {text && (
-          <p className={`mt-8 text-xl ${wideText ? "max-w-6xl" : "max-w-3xl"} leading-relaxed sm:text-[23px] sm:leading-[1.9]`}>{text}</p>
+          <p className={`mt-8 text-xl ${wideText ? "max-w-6xl" : "max-w-3xl"} leading-relaxed sm:text-[23px] sm:leading-[1.9] ${heroIn("bottom", 3)}`}>{text}</p>
         )}
 
         {intro && (
