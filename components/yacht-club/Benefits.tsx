@@ -93,7 +93,7 @@ export default function Benefits({
       <div className="absolute inset-0 -z-10 transition-transform duration-[2600ms] ease-out group-data-[state=idle]/benefits:scale-[1.18]">
         <Image src="/images/yacht-club/sea.jpg" alt="" fill sizes="100vw" className="object-cover object-[50%_60%]" />
       </div>
-      <div className="absolute inset-0 -z-10 bg-linear-to-b from-navy via-transparent via-30% to-navy-deep" />
+      <div className="absolute inset-0 -z-10 bg-linear-to-b from-navy-deep via-transparent via-30% to-navy-deep" />
 
       <div className="mx-auto w-full max-w-[1340px] px-5 sm:px-8">
         <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold leading-tight text-teal transition-all duration-1000 ease-out group-data-[state=idle]/benefits:translate-y-8 group-data-[state=idle]/benefits:opacity-0 sm:text-[40px] sm:leading-[1.5]">

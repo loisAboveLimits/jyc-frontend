@@ -16,7 +16,7 @@ export default function Beacon({ dict }: { dict: Dictionary }) {
         sizes="100vw"
         className="-z-10 scale-110 object-cover opacity-20 blur-[2px]"
       />
-      <div className="absolute inset-0 -z-10 bg-linear-to-b from-navy via-navy/60 to-navy" />
+      <div className="absolute inset-0 -z-10 bg-linear-to-b from-navy-deep via-navy/60 to-navy-deep" />
 
       <div className={`${container} grid items-center gap-10 lg:grid-cols-2 lg:gap-16`}>
         <div>

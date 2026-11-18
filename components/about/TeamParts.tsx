@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@/components/icons";
-import { arrowButton, container } from "@/components/ui";
+import { arrowButton, container, softBand } from "@/components/ui";
 
 /**
  * Pieces of the "Meet The Team" section that work on the server and in the
@@ -53,7 +53,7 @@ export function TeamFrame({
   children: ReactNode;
 }) {
   return (
-    <section className="overflow-hidden bg-navy-soft py-14 lg:py-20">
+    <section className={`overflow-hidden ${softBand} py-14 lg:py-20`}>
       <div className={`${container} grid gap-10 lg:grid-cols-[minmax(0,370px)_minmax(0,1fr)] lg:gap-16`}>
         <div className="lg:pt-0">
           <div className="flex gap-3">

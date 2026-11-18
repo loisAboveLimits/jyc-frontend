@@ -1,4 +1,5 @@
 import Image from "next/image";
+import EdgeFades from "@/components/EdgeFades";
 import { CalendarIcon, PinIcon } from "@/components/icons";
 import { container } from "@/components/ui";
 import type { Dictionary } from "@/lib/dictionaries";
@@ -17,6 +18,8 @@ export default function Events({ dict }: { dict: Dictionary }) {
         className="-z-10 object-cover"
       />
       <div className="absolute inset-0 -z-10 bg-navy/45" />
+      {/* Short fades, so they end above the navy "Upcoming Events" label */}
+      <EdgeFades size="h-14 lg:h-20" />
 
       <div className={`${container} grid gap-12 py-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.45fr)] lg:gap-24 lg:py-24`}>
         <div>

@@ -69,6 +69,16 @@ export default function PageHero({
         <div className="absolute inset-0 bg-linear-to-r from-navy/60 via-navy/10 to-transparent rtl:bg-linear-to-l" />
       </div>
 
+      {/* Let the hero fade gently into the darker page background below (over
+          the photo and its side tint), so there is no visible line between
+          this section and the next. */}
+      <div
+        aria-hidden="true"
+        className={`pointer-events-none absolute inset-x-0 -bottom-px -z-[5] bg-linear-to-b from-transparent to-navy-deep ${
+          compact ? "h-1/3" : "h-[55%]"
+        }`}
+      />
+
       <div className={`${container} pt-44 sm:pt-56 lg:pt-[340px] ${compact ? "pb-20 lg:pb-32" : "pb-16 lg:pb-24"}`}>
         <nav aria-label={breadcrumb.label} className="text-lg text-teal sm:text-xl">
           <ol className="flex flex-wrap items-center gap-2">

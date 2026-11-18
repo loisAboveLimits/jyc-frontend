@@ -27,6 +27,12 @@ export default function AboutHero({ dict }: { dict: Dictionary }) {
         <div className="absolute inset-0 bg-linear-to-r from-navy/50 to-transparent rtl:bg-linear-to-l" />
       </div>
 
+      {/* Fade into the darker page background so the heritage banner below starts without a line */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 -bottom-px -z-[5] h-[30%] bg-linear-to-b from-transparent to-navy-deep"
+      />
+
       <div className={`${container} pb-16 pt-44 sm:pt-56 lg:pb-24 lg:pt-[340px]`}>
         <h1 className="text-5xl font-bold sm:text-6xl lg:text-[64px]">{t.title}</h1>
         <p className="mt-5 text-xl sm:text-[22px]">{t.subtitle}</p>

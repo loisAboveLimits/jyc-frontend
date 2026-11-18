@@ -1,4 +1,5 @@
 import Image from "next/image";
+import EdgeFades from "@/components/EdgeFades";
 import { container } from "@/components/ui";
 import type { Dictionary } from "@/lib/dictionaries";
 
@@ -18,6 +19,7 @@ export default function PortStrip({ dict }: { dict: Dictionary }) {
       />
       {/* Darker behind the text so it stays readable */}
       <div className="absolute inset-0 -z-10 bg-linear-to-r from-navy/90 via-navy/65 to-navy/30 rtl:bg-linear-to-l lg:via-navy/35 lg:to-transparent" />
+      <EdgeFades size="h-12 lg:h-20" />
 
       <div className={`${container} py-10 sm:py-12`}>
         <h2 className="text-3xl font-bold leading-tight sm:text-[42px]">{t.title}</h2>

@@ -35,7 +35,7 @@ function parse(value: string) {
 
 /**
  * A number that counts up (from 0, or from 2000 for a year) when it scrolls into view, keeping any
- * prefix/suffix ("+", "K", "%"â€¦) and the number of decimals.
+ * prefix/suffix ("+", "K", "%"…) and the number of decimals.
  * The server renders the final value, so it reads correctly without
  * JavaScript, and people who prefer reduced motion see it without animating.
  */

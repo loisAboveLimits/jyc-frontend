@@ -169,7 +169,7 @@ export default function HeroSlider({
           );
         })}
         {/* Darken the top (behind the menu), the text side, and the bottom edge */}
-        <div className="absolute inset-0 z-[2] bg-linear-to-b from-navy via-navy/10 to-navy/90" />
+        <div className="absolute inset-0 z-[2] bg-linear-to-b from-navy via-navy/10 to-navy" />
         <div className="absolute inset-0 z-[2] bg-linear-to-r from-navy via-navy/70 to-transparent md:via-navy/50" />
       </div>
 
