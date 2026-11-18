@@ -28,3 +28,12 @@ export const eyebrow = "text-xl font-semibold text-teal";
 /** Round arrow button used by sliders. */
 export const arrowButton =
   "grid size-12 place-items-center rounded-full text-white shadow-lg shadow-black/20 transition-colors";
+
+/**
+ * Classes for a hero text line that animates in like the home slider captions
+ * (see .hero-in in app/globals.css): `from` is the side it slides in from,
+ * `order` its place in the sequence (0 = first).
+ *   <h1 className={`text-6xl ${heroIn("right", 1)}`}>…</h1>
+ */
+export const heroIn = (from: "top" | "right" | "left" | "bottom", order: 0 | 1 | 2 | 3) =>
+  `hero-in hero-in-${from} hero-in-${order}`;

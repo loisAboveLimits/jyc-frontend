@@ -63,7 +63,7 @@ export default async function LangLayout({
         <PageLoader label={dict.common.loading} />
         {/* Without JavaScript the loader could never hide itself, so skip it. */}
         <noscript>
-          <style>{"#page-loader{display:none}"}</style>
+          <style>{"#page-loader{display:none}.hero-in{animation:none}"}</style>
         </noscript>
         <SmoothScroll />
         <SiteHeader lang={lang} dict={dict} />

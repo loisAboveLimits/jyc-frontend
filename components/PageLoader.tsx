@@ -74,6 +74,19 @@ export default function PageLoader({ label }: { label: string }) {
     return () => window.clearTimeout(timer);
   }, [state]);
 
+  // Tell the page when it can be seen: hero texts start their entrance
+  // animation (html[data-page-ready], see .hero-in in globals.css, and the
+  // "jyc:page-ready" event for the home slider).
+  useEffect(() => {
+    const root = document.documentElement;
+    if (state === "visible") {
+      root.removeAttribute("data-page-ready");
+    } else if (!root.hasAttribute("data-page-ready")) {
+      root.setAttribute("data-page-ready", "");
+      window.dispatchEvent(new Event("jyc:page-ready"));
+    }
+  }, [state]);
+
   // Remove it completely after the fade (also when transitions are disabled).
   useEffect(() => {
     if (state !== "hiding") return;

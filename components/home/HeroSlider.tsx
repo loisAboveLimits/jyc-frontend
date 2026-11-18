@@ -61,8 +61,17 @@ export default function HeroSlider({
 
   useEffect(() => {
     setReducedMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-    const timer = window.setTimeout(() => setReady(true), 50);
-    return () => window.clearTimeout(timer);
+    // Captions animate in once the page loader starts fading out (see PageLoader).
+    let timer: number | undefined;
+    const start = () => {
+      timer = window.setTimeout(() => setReady(true), 50);
+    };
+    if (document.documentElement.hasAttribute("data-page-ready")) start();
+    else window.addEventListener("jyc:page-ready", start, { once: true });
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("jyc:page-ready", start);
+    };
   }, []);
 
   // Move on by itself.
@@ -222,7 +231,7 @@ export default function HeroSlider({
                 <p className="mt-8 text-2xl font-semibold sm:text-4xl" style={caption(active, "left", 2)}>
                   {slide.subtitle}
                 </p>
-                <p className="mt-4 text-lg leading-none sm:text-2xl sm:leading-none" style={caption(active, "bottom", 3)}>
+                <p className="mt-4 text-lg leading-[1.5] sm:text-2xl" style={caption(active, "bottom", 3)}>
                   {slide.text}
                 </p>
               </div>
