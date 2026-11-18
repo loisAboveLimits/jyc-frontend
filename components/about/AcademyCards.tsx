@@ -9,7 +9,7 @@ export default function AcademyCards({ lang, dict }: { lang: Locale; dict: Dicti
   const href = localizedHref(lang, "/academy");
 
   return (
-    <section className="relative isolate overflow-hidden pt-20 lg:pt-28">
+    <section className="relative isolate overflow-x-clip pt-20 lg:pt-28">
       {/* Soft teal glow on the left, as in the design */}
       <div className="absolute -start-40 top-10 -z-10 size-[420px] rounded-full bg-teal/20 blur-[120px]" />
 
