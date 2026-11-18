@@ -23,44 +23,45 @@ type DrupalMenuResponse = { menu: string; langcode: string; items: DrupalMenuIte
 export type MenuLink = { key: string; label: string; href: string; path: string };
 
 /**
- * Raw menu tree from Drupal, cached for an hour.
- * Errors are thrown (and not cached) so the caller can fall back.
+ * Raw menu tree from Drupal, or null if Drupal can't be reached.
+ *
+ * Never throws: an error thrown inside "use cache" fails the page build even
+ * when the caller catches it (e.g. on Vercel, where the local Drupal doesn't
+ * exist). A good answer is cached for an hour; a failure only for about a
+ * minute, so Drupal is tried again soon.
  */
 export async function getDrupalMenu(
   menu: string,
   lang: Locale,
   depth?: number,
-): Promise<DrupalMenuItem[]> {
+): Promise<DrupalMenuItem[] | null> {
   "use cache";
-  cacheLife("hours");
   cacheTag("drupal-menu", `drupal-menu-${menu}`);
 
   const params = new URLSearchParams({ lang });
   if (depth) params.set("depth", String(depth));
-  const data = await drupalFetch<DrupalMenuResponse>(`/api/menu/${menu}?${params}`);
-  return data.items;
+  try {
+    const data = await drupalFetch<DrupalMenuResponse>(`/api/menu/${menu}?${params}`);
+    cacheLife("hours");
+    return data.items;
+  } catch (error) {
+    console.warn(
+      `[menu] Drupal menu "${menu}" (${lang}) unavailable, using the built-in menu:`,
+      error instanceof Error ? (error.cause ?? error.message) : error,
+    );
+    cacheLife("minutes");
+    return null;
+  }
 }
 
 /**
  * Links for the main navigation, from the Drupal "main" menu.
- * If Drupal can't be reached, the built-in page list is used instead.
+ * If Drupal can't be reached (or the menu is empty), the built-in page list is used instead.
  */
 export async function getMainNav(lang: Locale, dict: Dictionary): Promise<MenuLink[]> {
-  try {
-    const items = await getDrupalMenu("main", lang, 1);
-    return items
-      .filter((item) => item.url !== null)
-      .map((item) => {
-        const url = item.url as string;
-        return {
-          key: item.id,
-          label: item.title,
-          href: item.external ? url : localizedHref(lang, url),
-          path: item.external ? url : url.split(/[?#]/)[0] || "/",
-        };
-      });
-  } catch (error) {
-    console.error("[menu] Could not load the main menu from Drupal:", error);
+  const items = (await getDrupalMenu("main", lang, 1))?.filter((item) => item.url !== null);
+
+  if (!items?.length) {
     return mainPages.map((page) => ({
       key: page.key,
       label: dict.nav[page.key],
@@ -68,4 +69,14 @@ export async function getMainNav(lang: Locale, dict: Dictionary): Promise<MenuLi
       path: page.path,
     }));
   }
+
+  return items.map((item) => {
+    const url = item.url as string;
+    return {
+      key: item.id,
+      label: item.title,
+      href: item.external ? url : localizedHref(lang, url),
+      path: item.external ? url : url.split(/[?#]/)[0] || "/",
+    };
+  });
 }
