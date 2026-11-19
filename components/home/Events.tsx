@@ -3,9 +3,23 @@ import { CalendarIcon, PinIcon } from "@/components/icons";
 import { container } from "@/components/ui";
 import type { Dictionary } from "@/lib/dictionaries";
 
-/** "Upcoming Events": intro text and a grid of event cards over a photo. */
-export default function Events({ dict }: { dict: Dictionary }) {
+/** One event card. `href` (booking) and `mapHref` (location) are optional links. */
+export type EventItem = {
+  date: string;
+  title: string;
+  text: string;
+  location: string;
+  href?: string;
+  mapHref?: string;
+};
+
+/**
+ * "Upcoming Events": intro text and a grid of event cards over a photo.
+ * `items` replaces the built-in events (e.g. events from a CMS).
+ */
+export default function Events({ dict, items }: { dict: Dictionary; items?: EventItem[] }) {
   const t = dict.home.events;
+  const events: EventItem[] = items ?? t.items;
 
   return (
     <section className="relative isolate overflow-hidden">
@@ -28,7 +42,7 @@ export default function Events({ dict }: { dict: Dictionary }) {
         </div>
 
         <ul className="grid gap-4 sm:grid-cols-2">
-          {t.items.map((event, index) => (
+          {events.map((event, index) => (
             <li
               key={index}
               className="flex flex-col overflow-hidden rounded-3xl bg-navy/85 shadow-xl shadow-black/20 backdrop-blur-sm"
@@ -38,11 +52,25 @@ export default function Events({ dict }: { dict: Dictionary }) {
                 <span>{event.date}</span>
               </p>
               <div className="flex flex-1 flex-col px-5 pb-5 pt-3">
-                <h3 className="text-[22px] font-bold leading-tight">{event.title}</h3>
+                <h3 className="text-[22px] font-bold leading-tight">
+                  {event.href ? (
+                    <a href={event.href} {...newTab(event.href)} className="hover:underline">
+                      {event.title}
+                    </a>
+                  ) : (
+                    event.title
+                  )}
+                </h3>
                 <p className="mt-2 text-[15px] leading-snug text-white/90">{event.text}</p>
                 <p className="mt-auto flex items-center gap-1.5 pt-6 text-sm font-bold">
                   <PinIcon className="h-[15px] w-auto shrink-0" />
-                  {event.location}
+                  {event.mapHref ? (
+                    <a href={event.mapHref} {...newTab(event.mapHref)} className="hover:underline">
+                      {event.location}
+                    </a>
+                  ) : (
+                    event.location
+                  )}
                 </p>
               </div>
             </li>
@@ -51,4 +79,9 @@ export default function Events({ dict }: { dict: Dictionary }) {
       </div>
     </section>
   );
+}
+
+/** Links to other websites open in a new tab. */
+function newTab(href: string) {
+  return /^https?:\/\//i.test(href) ? { target: "_blank", rel: "noopener noreferrer" } : {};
 }
