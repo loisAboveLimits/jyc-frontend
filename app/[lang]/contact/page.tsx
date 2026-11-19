@@ -57,7 +57,7 @@ export default async function ContactPage({ params }: Props) {
         }
       />
       <ContactInfo dict={dict} />
-      <ContactForm dict={dict} />
+      <ContactForm lang={lang} dict={dict} />
       <Newsletter dict={dict} newsHref={latestNewsHref} />
       <Faq title={t.faq.title} items={t.faq.items} group="contact-faq" />
     </main>

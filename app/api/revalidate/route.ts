@@ -2,7 +2,8 @@ import { revalidateTag } from "next/cache";
 import { NextResponse, type NextRequest } from "next/server";
 
 /**
- * Refresh the content cached from Drupal (menus, banners, page content), so
+ * Refresh the content cached from Drupal (menus, banners, page content,
+ * content blocks, sections, trips, events), so
  * changes made in Drupal show right away instead of within the hour.
  *
  *   GET /api/revalidate                      -> everything from Drupal
@@ -12,7 +13,7 @@ import { NextResponse, type NextRequest } from "next/server";
  * Set DRUPAL_REVALIDATE_SECRET (e.g. in .env.local / Vercel) and pass it as
  * ?secret=…; without that variable it only works in development (npm run dev).
  */
-const ALL_TAGS = ["drupal-menu", "drupal-banners", "drupal-page"];
+const ALL_TAGS = ["drupal-menu", "drupal-banners", "drupal-page", "drupal-block", "drupal-section", "drupal-trips", "drupal-events"];
 
 export async function GET(request: NextRequest) {
   const secret = process.env.DRUPAL_REVALIDATE_SECRET;

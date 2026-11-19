@@ -13,11 +13,11 @@ export const PAGE_NODE_IDS: Record<MainPageKey, number | null> = {
   home: 1,
   about: 5,
   yachtClub: 7,
-  marina: null,
-  academy: null,
-  blogs: null,
-  leasing: null,
-  contact: null,
+  marina: 9,
+  academy: 10,
+  blogs: 11,
+  leasing: 12,
+  contact: 13,
 };
 
 /** One banner as returned by Drupal: GET /api/banners/{nid}?lang=xx */

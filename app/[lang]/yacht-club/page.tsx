@@ -65,6 +65,7 @@ export default async function YachtClubPage({ params }: Props) {
         labels={{ ...dict.common.contactForm, subject: t.contact.subject }}
         image="/images/yacht-club/contact.jpg"
         imageAlt={t.contact.imageAlt}
+        webform={{ id: "contact_jyc_marina", lang, messages: dict.common.formStatus }}
       />
     </main>
   );

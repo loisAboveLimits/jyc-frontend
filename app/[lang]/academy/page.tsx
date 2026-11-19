@@ -94,6 +94,7 @@ export default async function AcademyPage({ params }: Props) {
         imageAlt={t.contact.imageAlt}
         email={ACADEMY_EMAIL}
         phone={ACADEMY_PHONE}
+        webform={{ id: "contact_academy", lang, messages: dict.common.formStatus, messageRequired: false }}
       />
     </main>
   );

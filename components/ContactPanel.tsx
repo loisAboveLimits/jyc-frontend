@@ -2,12 +2,13 @@ import Image from "next/image";
 import MailtoForm from "@/components/MailtoForm";
 import { CONTACT_EMAIL } from "@/components/SiteFooter";
 import { button, container } from "@/components/ui";
+import WebformForm, { WebformSubmit, type WebformMessages } from "@/components/WebformForm";
 import { MailIcon, PhoneIcon } from "@/components/yacht-club/icons";
 
 export const CONTACT_PHONE = "+966 55 876 7482";
 
 const field =
-  "w-full border-b border-white/40 bg-transparent px-2 py-2 text-white placeholder:text-white/80 focus:border-teal focus:outline-none";
+  "w-full border-b border-white/40 bg-transparent px-2 py-2 text-white placeholder:text-white/80 focus:border-teal focus:outline-none aria-[invalid=true]:border-red-300";
 
 export type ContactPanelProps = {
   /** Section id, so buttons like "Apply Now" can link to #id. */
@@ -28,6 +29,12 @@ export type ContactPanelProps = {
   /** Shown in the info card; default to the club's main email and phone. */
   email?: string;
   phone?: string;
+  /**
+   * Save the form in this Drupal webform (e.g. "contact_jyc_marina").
+   * Without it, the form opens the visitor's email app instead.
+   * `messageRequired`: match the webform's "Message" element (default true).
+   */
+  webform?: { id: string; lang: string; messages: WebformMessages; messageRequired?: boolean };
 };
 
 /**
@@ -43,7 +50,43 @@ export default function ContactPanel({
   imageAlt,
   email = CONTACT_EMAIL,
   phone = CONTACT_PHONE,
+  webform,
 }: ContactPanelProps) {
+  const messageRequired = Boolean(webform) && webform?.messageRequired !== false;
+  const fields = (
+    <>
+      <div>
+        <label htmlFor={`${id}-email`} className="sr-only">
+          {labels.email}
+        </label>
+        <input
+          id={`${id}-email`}
+          name="email"
+          type="email"
+          required
+          autoComplete="email"
+          placeholder={`${labels.email}*`}
+          className={field}
+        />
+      </div>
+      <div>
+        <label htmlFor={`${id}-message`} className="sr-only">
+          {labels.message}
+        </label>
+        <textarea
+          id={`${id}-message`}
+          name="message"
+          rows={1}
+          required={messageRequired}
+          placeholder={messageRequired ? `${labels.message}*` : labels.message}
+          className={`${field} resize-y`}
+        />
+      </div>
+    </>
+  );
+  const formClass = "mt-6 max-w-lg space-y-8";
+  const buttonClass = `${button.gold} w-full sm:w-[72%]`;
+
   return (
     <section id={id} className="scroll-mt-28 pb-20 pt-12 lg:pb-32 lg:pt-20">
       <div className={`${container} grid items-center gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)] lg:gap-16 xl:gap-36`}>
@@ -51,39 +94,23 @@ export default function ContactPanel({
           <h2 className="text-3xl font-bold text-teal sm:text-[40px]">{title}</h2>
           <p className="mt-6 max-w-lg leading-relaxed sm:text-[17px]">{text}</p>
 
-          <MailtoForm to={email} subject={labels.subject} className="mt-6 max-w-lg space-y-8">
-            <div>
-              <label htmlFor={`${id}-email`} className="sr-only">
-                {labels.email}
-              </label>
-              <input
-                id={`${id}-email`}
-                name="email"
-                type="email"
-                required
-                autoComplete="email"
-                placeholder={`${labels.email}*`}
-                className={field}
-              />
-            </div>
-            <div>
-              <label htmlFor={`${id}-message`} className="sr-only">
-                {labels.message}
-              </label>
-              <textarea
-                id={`${id}-message`}
-                name="message"
-                rows={1}
-                placeholder={labels.message}
-                className={`${field} resize-y`}
-              />
-            </div>
-            <div className="flex justify-end">
-              <button type="submit" className={`${button.gold} w-full sm:w-[72%]`}>
-                {labels.send}
-              </button>
-            </div>
-          </MailtoForm>
+          {webform ? (
+            <WebformForm webformId={webform.id} lang={webform.lang} messages={webform.messages} className={formClass}>
+              {fields}
+              <div className="flex justify-end">
+                <WebformSubmit className={buttonClass}>{labels.send}</WebformSubmit>
+              </div>
+            </WebformForm>
+          ) : (
+            <MailtoForm to={email} subject={labels.subject} className={formClass}>
+              {fields}
+              <div className="flex justify-end">
+                <button type="submit" className={buttonClass}>
+                  {labels.send}
+                </button>
+              </div>
+            </MailtoForm>
+          )}
         </div>
 
         <div className="relative h-80 w-full overflow-hidden rounded-3xl shadow-2xl shadow-black/30 sm:aspect-[659/400] sm:h-auto">

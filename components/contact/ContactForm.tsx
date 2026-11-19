@@ -1,13 +1,20 @@
-import MailtoForm from "@/components/MailtoForm";
-import { CONTACT_EMAIL } from "@/components/SiteFooter";
 import { button, container } from "@/components/ui";
+import WebformForm, { WebformSubmit } from "@/components/WebformForm";
 import type { Dictionary } from "@/lib/dictionaries";
+import type { Locale } from "@/lib/i18n";
+
+/** Drupal webform that stores this form's messages (fields named like its elements). */
+const WEBFORM_ID = "contact_page";
 
 const field =
-  "w-full rounded-md border border-white/80 bg-transparent px-5 py-5 text-white placeholder:text-white/70 focus:border-teal focus:outline-none focus:ring-1 focus:ring-teal";
+  "w-full rounded-md border border-white/80 bg-transparent px-5 py-5 text-white placeholder:text-white/70 focus:border-teal focus:outline-none focus:ring-1 focus:ring-teal aria-[invalid=true]:border-red-300";
 
-/** "Contact Jeddah Yacht Club & Marina": the full enquiry form. */
-export default function ContactForm({ dict }: { dict: Dictionary }) {
+/**
+ * "Contact Jeddah Yacht Club & Marina": the full enquiry form.
+ * Saved in the Drupal webform "contact_page" (first name, last name and
+ * email are required there; the message is optional).
+ */
+export default function ContactForm({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   const t = dict.contact.form;
 
   return (
@@ -16,16 +23,22 @@ export default function ContactForm({ dict }: { dict: Dictionary }) {
         <h2 className="text-3xl font-bold leading-tight text-teal sm:text-[40px]">{t.title}</h2>
         <p className="mt-5 max-w-5xl leading-relaxed sm:text-[17px]">{t.text}</p>
 
-        <MailtoForm to={CONTACT_EMAIL} subject={t.subject} className="mt-10 grid gap-5 sm:grid-cols-[1.85fr_1fr] lg:mt-16">
+        <WebformForm
+          webformId={WEBFORM_ID}
+          lang={lang}
+          messages={dict.common.formStatus}
+          className="mt-10 grid gap-5 sm:grid-cols-[1.85fr_1fr] lg:mt-16"
+        >
           <div>
             <label htmlFor="contact-first-name" className="sr-only">
               {t.firstName}
             </label>
             <input
               id="contact-first-name"
-              name="firstName"
+              name="first_name"
+              required
               autoComplete="given-name"
-              placeholder={t.firstNamePlaceholder}
+              placeholder={`${t.firstNamePlaceholder}*`}
               className={field}
             />
           </div>
@@ -35,9 +48,10 @@ export default function ContactForm({ dict }: { dict: Dictionary }) {
             </label>
             <input
               id="contact-last-name"
-              name="lastName"
+              name="last_name"
+              required
               autoComplete="family-name"
-              placeholder={t.lastNamePlaceholder}
+              placeholder={`${t.lastNamePlaceholder}*`}
               className={field}
             />
           </div>
@@ -68,11 +82,9 @@ export default function ContactForm({ dict }: { dict: Dictionary }) {
             />
           </div>
           <div className="mt-2 sm:col-span-2">
-            <button type="submit" className={`${button.gold} w-full sm:w-auto sm:min-w-[367px]`}>
-              {t.send}
-            </button>
+            <WebformSubmit className={`${button.gold} w-full sm:w-auto sm:min-w-[367px]`}>{t.send}</WebformSubmit>
           </div>
-        </MailtoForm>
+        </WebformForm>
       </div>
     </section>
   );

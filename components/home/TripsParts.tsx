@@ -14,6 +14,8 @@ export type Trip = {
   title: string;
   text: string;
   image: string;
+  /** The photo comes from another server (Drupal): load it as it is. */
+  remote?: boolean;
   rating: number;
   href: string;
 };
@@ -43,6 +45,7 @@ export function TripCard({ trip, labels }: { trip: Trip; labels: TripLabels }) {
           alt=""
           fill
           sizes="(min-width: 1280px) 22vw, (min-width: 640px) 45vw, 82vw"
+          unoptimized={trip.remote}
           className="object-cover"
         />
       </div>

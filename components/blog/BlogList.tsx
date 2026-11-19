@@ -1,7 +1,9 @@
 import PostCard from "@/components/blog/PostCard";
 import Pagination from "@/components/blog/Pagination";
+import DrupalHero from "@/components/DrupalHero";
 import PageHero from "@/components/PageHero";
 import { container } from "@/components/ui";
+import { PAGE_NODE_IDS } from "@/lib/banners";
 import { getPageCount, getPostsPage } from "@/lib/blog";
 import type { Dictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/i18n";
@@ -13,13 +15,22 @@ export default function BlogList({ lang, dict, page }: { lang: Locale; dict: Dic
 
   return (
     <main className="flex-1">
-      <PageHero
+      {/* Banners from the Drupal "Blogs" page; the built-in banner if there are none */}
+      <DrupalHero
+        nodeId={PAGE_NODE_IDS.blogs}
         lang={lang}
-        breadcrumb={{ home: dict.common.breadcrumbHome, label: dict.common.breadcrumbLabel }}
-        crumb={dict.nav.blogs}
-        title={t.title}
-        image="/images/blogs/banner.jpg"
-        compact
+        dict={dict}
+        breadcrumb={{ current: dict.nav.blogs }}
+        fallback={
+          <PageHero
+            lang={lang}
+            breadcrumb={{ home: dict.common.breadcrumbHome, label: dict.common.breadcrumbLabel }}
+            crumb={dict.nav.blogs}
+            title={t.title}
+            image="/images/blogs/banner.jpg"
+            compact
+          />
+        }
       />
 
       <section className="pb-20 lg:pb-28">

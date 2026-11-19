@@ -66,7 +66,13 @@
       "emailLabel": "Email",
       "phoneLabel": "Phone"
     },
-    "backToTop": "Back to top"
+    "backToTop": "Back to top",
+    "formStatus": {
+      "sending": "Sending…",
+      "success": "Thank you! Your message has been sent. Our team will get back to you soon.",
+      "invalid": "Please check the highlighted fields: enter a valid email address and fill in all required fields (*).",
+      "error": "Sorry, your message could not be sent right now. Please try again later or email us directly."
+    }
   },
   "experiences": {
     "yachtClub": {
@@ -821,6 +827,12 @@
     "subscribe": "Subscribe",
     "newsletterSubject": "Newsletter subscription",
     "social": "Follow us",
-    "copyright": "© Jeddah Yacht Club and Marina All rights reserved 2026"
+    "copyright": "© Jeddah Yacht Club and Marina All rights reserved 2026",
+    "newsletterStatus": {
+      "sending": "Subscribing…",
+      "success": "Thank you for subscribing! You'll receive our latest news and offers.",
+      "invalid": "Please enter a valid email address.",
+      "error": "Sorry, we couldn't subscribe you right now. Please try again later."
+    }
   }
 }

@@ -1,14 +1,20 @@
 import Image from "next/image";
-import MailtoForm from "@/components/MailtoForm";
-import { CONTACT_EMAIL } from "@/components/SiteFooter";
 import { button, container } from "@/components/ui";
+import WebformForm, { WebformSubmit } from "@/components/WebformForm";
 import type { Dictionary } from "@/lib/dictionaries";
+import type { Locale } from "@/lib/i18n";
+
+/** Drupal webform that stores this form's messages. */
+const WEBFORM_ID = "contact_jyc_marina";
 
 const field =
-  "mt-1 w-full border-b border-white/60 bg-transparent py-2 text-white focus:border-teal focus:outline-none";
+  "mt-1 w-full border-b border-white/60 bg-transparent py-2 text-white focus:border-teal focus:outline-none aria-[invalid=true]:border-red-300";
 
-/** "Contact Jeddah Yacht Club & Marina": short form next to a photo. */
-export default function Contact({ dict }: { dict: Dictionary }) {
+/**
+ * "Contact Jeddah Yacht Club & Marina": short form next to a photo.
+ * The form is saved in the Drupal webform "contact_jyc_marina".
+ */
+export default function Contact({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   const t = dict.home.contact;
 
   return (
@@ -25,7 +31,12 @@ export default function Contact({ dict }: { dict: Dictionary }) {
             {t.text}
           </p>
 
-          <MailtoForm to={CONTACT_EMAIL} subject={t.subject} className="mt-10 max-w-md space-y-7">
+          <WebformForm
+            webformId={WEBFORM_ID}
+            lang={lang}
+            messages={dict.common.formStatus}
+            className="mt-10 max-w-md space-y-7"
+          >
             <div>
               <label htmlFor="contact-email" className="text-white/80">
                 {t.email}
@@ -43,13 +54,12 @@ export default function Contact({ dict }: { dict: Dictionary }) {
             <div>
               <label htmlFor="contact-message" className="text-white/80">
                 {t.message}
+                <span aria-hidden="true">*</span>
               </label>
-              <textarea id="contact-message" name="message" rows={2} className={field} />
+              <textarea id="contact-message" name="message" rows={2} required className={field} />
             </div>
-            <button type="submit" className={button.gold}>
-              {t.send}
-            </button>
-          </MailtoForm>
+            <WebformSubmit className={button.gold}>{t.send}</WebformSubmit>
+          </WebformForm>
         </div>
 
         <div className="relative aspect-[596/402] overflow-hidden rounded-3xl shadow-2xl shadow-black/30">
